@@ -32,9 +32,9 @@ public class Player : MonoBehaviour
     private void Shoot() {
         Bullet bullet = Instantiate(bulletPf, transform.position, Quaternion.identity);
 
-
         bullet.CreateBullet(transform.up);
 
+        transform.position = Vector3.Lerp(transform.position, transform.position - transform.up, 1);
 
     }
 
