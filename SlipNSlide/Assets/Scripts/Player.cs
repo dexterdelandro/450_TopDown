@@ -17,10 +17,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //Debug.Log(mousePos);
+        //screen to world point helps convert the pixel coordinates of the mouse to world coordinates
 
-        transform.up = (mousePos - playerRb.position).normalized;
+        transform.up = (mousePos - playerRb.position).normalized;   //make player point to mouse
 
         //if (Input.GetKey(KeyCode.LeftArrow))
         //{
@@ -44,7 +45,8 @@ public class Player : MonoBehaviour
 
         bullet.CreateBullet(transform.up);
 
-        transform.position = Vector3.Lerp(transform.position, transform.position - transform.up, 1);
+        playerRb.AddForce(-transform.up, ForceMode2D.Impulse);
+        //transform.position = Vector3.Lerp(transform.position, transform.position - transform.up, 1);
 
     }
 
