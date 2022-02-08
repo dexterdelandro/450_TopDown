@@ -17,10 +17,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePos = Input.mousePosition;
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Debug.Log(mousePos);
 
-        transform.up = (mousePos - playerRb.position);
+        transform.up = (mousePos - playerRb.position).normalized;
 
         //if (Input.GetKey(KeyCode.LeftArrow))
         //{
