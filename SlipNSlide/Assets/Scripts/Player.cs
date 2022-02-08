@@ -6,23 +6,33 @@ public class Player : MonoBehaviour
 {
 
     public Bullet bulletPf;
+    private Rigidbody2D playerRb;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerRb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            transform.Rotate(0, 0, 0.5f);
-        }
+        Vector2 mousePos = Input.mousePosition;
+        //Debug.Log(mousePos);
 
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Rotate(0,0,-0.5f);
-        }
+        transform.up = (mousePos - playerRb.position);
+
+        //if (Input.GetKey(KeyCode.LeftArrow))
+        //{
+        //    transform.Rotate(0, 0, 0.5f);
+
+        //    transform.up = (mousePos - playerRb.position).normalized;
+        //}
+
+        //if (Input.GetKey(KeyCode.RightArrow))
+        //{
+        //    transform.Rotate(0, 0, -0.5f);
+        //}
 
         if (Input.GetKeyDown(KeyCode.Space)) {
             Shoot();

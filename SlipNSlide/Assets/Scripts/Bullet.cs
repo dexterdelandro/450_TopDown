@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     public void CreateBullet(Vector2 direction) {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
-        Debug.Log(direction);
+        //Debug.Log(direction);
         rb.AddForce(direction , ForceMode2D.Impulse);
     }
 }
