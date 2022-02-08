@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         Bullet bullet = Instantiate(bulletPf, transform.position, Quaternion.identity);
 
 
-        bullet.CreateBullet(transform.forward);
+        bullet.CreateBullet(transform.up);
 
 
     }
