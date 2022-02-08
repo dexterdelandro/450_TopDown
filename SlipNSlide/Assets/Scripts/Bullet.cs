@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 1.5f;
     public void CreateBullet(Vector2 direction) {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
         //Debug.Log(direction);
-        rb.AddForce(direction , ForceMode2D.Impulse);
+        rb.AddForce(direction * speed, ForceMode2D.Impulse);
     }
 }
