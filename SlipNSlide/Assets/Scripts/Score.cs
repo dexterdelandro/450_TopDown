@@ -18,7 +18,7 @@ public class Score : MonoBehaviour
         scoreText = GameObject.Find("TextScore").GetComponent<Text>();
 
         health = 100;
-        healthText = GameObject.Find("HealthScore").GetComponent<Text>();
+        healthText = GameObject.Find("TextHealth").GetComponent<Text>();
     }
 
     // Update is called once per frame
