@@ -22,9 +22,9 @@ public class bulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, destination, speed * Time.deltaTime);
+        transform.position += transform.forward * speed * Time.deltaTime;
 
-        if(Vector2.Distance(origin, transform.position) >= 5)
+        if(Vector2.Distance(origin, transform.position) >= 5 || Vector2.Distance(origin, transform.position) == 5)
         {
             RemoveBullet();
         }
@@ -33,7 +33,7 @@ public class bulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if(collision.CompareTag("Player") || collision.CompareTag("Untagged"))
         {
             RemoveBullet();
         }

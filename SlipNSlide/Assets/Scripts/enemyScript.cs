@@ -28,6 +28,7 @@ public class enemyScript : MonoBehaviour
 
     void Start()
     {
+        target = GameObject.FindWithTag("Player").transform;
         currentState = State.Casual;
     }
 
