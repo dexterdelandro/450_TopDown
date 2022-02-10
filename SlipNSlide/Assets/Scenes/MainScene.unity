@@ -545,9 +545,25 @@ PrefabInstance:
       value: player
       objectReference: {fileID: 0}
     - target: {fileID: 5324449717369385719, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 5324449717369385719, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
       propertyPath: bulletPf
       value: 
       objectReference: {fileID: -1756606727847920125, guid: 73f6e9d93e4aeb943af575e7cb2e3bcc, type: 3}
+    - target: {fileID: 5324449717369385719, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
+      propertyPath: camMax.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324449717369385719, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
+      propertyPath: camMax.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324449717369385719, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
+      propertyPath: swayStrength
+      value: 0.005
+      objectReference: {fileID: 0}
     - target: {fileID: 8753500508052589919, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
       propertyPath: m_RootOrder
       value: 1
