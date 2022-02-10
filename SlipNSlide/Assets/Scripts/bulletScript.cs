@@ -8,8 +8,8 @@ public class bulletScript : MonoBehaviour
 
 
     private Transform player;
-    private Vector2 destination;
-    private Vector2 origin;
+    private Vector3 destination;
+    private Vector3 origin;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +22,7 @@ public class bulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * speed * Time.deltaTime;
-
-        if(Vector2.Distance(origin, transform.position) >= 5 || Vector2.Distance(origin, transform.position) == 5)
-        {
-            RemoveBullet();
-        }
+        transform.position += (destination - origin).normalized * speed * Time.deltaTime;
 
     }
 

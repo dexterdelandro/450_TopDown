@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6916509261444380042}
   - component: {fileID: 6916509261444380041}
   - component: {fileID: 6916509261444380044}
-  - component: {fileID: 6916509261444380045}
   - component: {fileID: -3088713720289117229}
   m_Layer: 0
   m_Name: Enemy
@@ -102,7 +101,7 @@ MonoBehaviour:
   health: 1
   fireRate: 0.5
   awareness: 10
-  attackRange: 5
+  attackRange: 7
   target: {fileID: 0}
   bullet: {fileID: 7617645779399286700, guid: f2a18ccd535a1594fb19cade831ac1fa, type: 3}
 --- !u!50 &6916509261444380044
@@ -113,7 +112,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6916509261444380040}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -126,25 +125,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &6916509261444380045
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6916509261444380040}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 47bd0932fa140ac4ba454c18cbf091c2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &-3088713720289117229
 BoxCollider2D:
   m_ObjectHideFlags: 0
