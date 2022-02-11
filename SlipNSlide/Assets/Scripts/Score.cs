@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    uint score;
+    public uint score;
     Text scoreText;
 
     uint health;
     Text healthText;
+
+    Player playerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,8 @@ public class Score : MonoBehaviour
 
         health = 100;
         healthText = GameObject.Find("TextHealth").GetComponent<Text>();
+
+        playerScript = GameObject.Find("player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -26,7 +30,7 @@ public class Score : MonoBehaviour
     {
         scoreText.text = $"Score: {score}";
 
-        healthText.text = $"Health: {health}";
+        healthText.text = $"Health: {playerScript.health}";
 
     }
 
@@ -39,13 +43,5 @@ public class Score : MonoBehaviour
         score += value;
     }
 
-    public uint getHealth()
-    {
-        return health;
-    }
-
-    public void damage(uint value)
-    {
-        health -= value;
-    }
+    
 }

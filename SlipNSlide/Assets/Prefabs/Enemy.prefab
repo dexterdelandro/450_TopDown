@@ -102,6 +102,7 @@ MonoBehaviour:
   fireRate: 0.5
   awareness: 10
   attackRange: 7
+  manager: {fileID: 0}
   target: {fileID: 0}
   bullet: {fileID: 7617645779399286700, guid: f2a18ccd535a1594fb19cade831ac1fa, type: 3}
 --- !u!50 &6916509261444380044
@@ -116,7 +117,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

@@ -16,12 +16,17 @@ public class Player : MonoBehaviour
     [SerializeField] private float swayStrength;
     [SerializeField] private Vector2 camMax;
 
+    public uint health;
+    Score score;
+
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
         camPosition = new Vector2(0, 0);
         camSway = new Vector2(0, 0);
+
+        health = 100;
     }
 
     // Update is called once per frame
@@ -79,7 +84,7 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        Bullet bullet = Instantiate(bulletPf, transform.position, Quaternion.identity);
+        Bullet bullet = Instantiate(bulletPf, transform.position + transform.up*2, transform.rotation);
 
         bullet.CreateBullet(transform.up);
 
@@ -87,5 +92,20 @@ public class Player : MonoBehaviour
         //transform.position = Vector3.Lerp(transform.position, transform.position - transform.up, 1);
 
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    //Collide with player bullets
+
+    //    //if (collision.gameObject.tag == "enemyBullet")
+    //    //{
+    //    //    Physics2D.IgnoreCollision(gameObject.GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
+    //    //}
+
+    //    if (collision.gameObject.tag == "enemyBullet")
+    //    {
+    //        health -= 10;
+    //    }
+    //}
 
 }

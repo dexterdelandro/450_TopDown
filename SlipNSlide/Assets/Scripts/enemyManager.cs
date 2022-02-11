@@ -5,16 +5,17 @@ using UnityEngine;
 public class enemyManager : MonoBehaviour
 {
     public GameObject enemy;
-    public GameObject[] enemies;
+    GameObject[] enemies;
 
-    private Vector3 enemyspawn1 = new Vector3(-5, 5, 0);
-    private Vector3 enemyspawn2 = new Vector3(5, 5, 0);
+    private Vector3 enemyspawn1 = new Vector3(6.2f, 1.92f, 0);
+    private Vector3 enemyspawn2 = new Vector3(-6.45f, -15.93f, 0);
 
 
     void Start()
     {
         Instantiate(enemy, enemyspawn1, Quaternion.identity);
         Instantiate(enemy, enemyspawn2, Quaternion.identity);
+
     }
 
     // Update is called once per frame

@@ -26,16 +26,21 @@ public class bulletScript : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.CompareTag("Player") || collision.CompareTag("Untagged"))
-        {
-            RemoveBullet();
-        }
-    }
+        //Debug.Log($"Enemy bullet collided with {collision.gameObject.tag}");
 
-    void RemoveBullet()
-    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Player>().health -= 10;
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Physics2D.IgnoreCollision(gameObject.GetComponent<CircleCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
+            return;
+        }
+
+
         Destroy(gameObject);
     }
 }

@@ -12,6 +12,8 @@ public class enemyScript : MonoBehaviour
     public float awareness;
     public float attackRange;
 
+    public GameObject manager;
+    Score score;
 
     //Player based info
     public Transform target;
@@ -28,7 +30,11 @@ public class enemyScript : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.FindWithTag("Player").transform;
+        health = 2;
+
+        manager = GameObject.Find("Manager");
+        score = manager.GetComponent<Score>();
+        target = GameObject.Find("player").transform;
         currentState = State.Casual;
     }
 
@@ -62,14 +68,14 @@ public class enemyScript : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Collide with player bullets
-        if (collision.CompareTag("Player"))
-        {
-            TakeDamage();
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    //Collide with player bullets
+    //    if (collision.CompareTag("Player") || collision.CompareTag("playerBullet"))
+    //    {
+    //        TakeDamage();
+    //    }
+    //}
 
     void FindTarget()
     {
@@ -92,12 +98,12 @@ public class enemyScript : MonoBehaviour
         }
     }
 
-    void TakeDamage()
+    public void TakeDamage()
     {
         health--;
-
         if (health <= 0)
         {
+            score.addScore(1);
             Destroy(gameObject);
         }
     }
