@@ -7,24 +7,24 @@ public class RoomGenerator : MonoBehaviour
     public GameObject startRoom;
     public GameObject nextRoom;
 
-    private GameObject temp;
+    private GameObject lastRoom;
 
 
     void Start()
     {
-        temp = Instantiate(startRoom, new Vector3(0,0,0), Quaternion.identity);
-
+        lastRoom = Instantiate(startRoom, new Vector3(0,0,0), Quaternion.identity);
         CreateFive();
     }
 
     void CreateFive()
     {
-        Vector3 nextLoc = temp.transform.position;
+        Vector3 nextLoc = startRoom.transform.position;
 
         for (int i = 0; i <= 5; i++)
         {
+            lastRoom = Instantiate(nextRoom, nextLoc, Quaternion.identity);
+
             nextLoc.y += 18;
-            temp = Instantiate(nextRoom, nextLoc, Quaternion.identity);
         }
     }
 
@@ -34,4 +34,5 @@ public class RoomGenerator : MonoBehaviour
     {
 
     }
+
 }
