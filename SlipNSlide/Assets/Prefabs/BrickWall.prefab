@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1957000174611443788}
   - component: {fileID: 1957000174611443789}
   - component: {fileID: 7196657366868725623}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BrickWall
   m_TagString: Wall
   m_Icon: {fileID: 0}

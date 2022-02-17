@@ -9,6 +9,7 @@ TagManager:
   - playerBullet
   - wall
   - Projectile
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Wall
   - 
   - 
   - 
