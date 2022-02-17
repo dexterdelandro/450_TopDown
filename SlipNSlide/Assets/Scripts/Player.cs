@@ -12,9 +12,12 @@ public class Player : MonoBehaviour
     public Camera mainCam;
     private Vector2 camPosition;
     private Vector3 camSway;
-    private float camSpeed;
+    public float camSpeed;
+    private Vector3 aimVector;
     [SerializeField] private float swayStrength;
     [SerializeField] private Vector2 camMax;
+    [SerializeField] private Sprite fastSprite;
+    [SerializeField] private Sprite slowSprite;
 
     public uint health;
     Score score;
@@ -36,7 +39,7 @@ public class Player : MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //screen to world point helps convert the pixel coordinates of the mouse to world coordinates
 
-        transform.up = (mousePos - playerRb.position).normalized;   //make player point to mouse
+        aimVector = (mousePos - playerRb.position).normalized;   //make player point to mouse
 
         //if (Input.GetKey(KeyCode.LeftArrow))
         //{
@@ -59,7 +62,7 @@ public class Player : MonoBehaviour
 
         //adjusts sway dynamically
 
-        camSway = (Input.mousePosition - transform.position) * swayStrength;
+        camSway = (Input.mousePosition - playerRb.transform.position - new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2, 0)) * swayStrength;
         if (camSway.x > camMax.x)
         {
             camSway.x = camMax.x;
@@ -77,18 +80,39 @@ public class Player : MonoBehaviour
             camSway.y = -camMax.y;
         }
 
-        camPosition = playerRb.transform.position + camSway;
+        Vector2 newPosition = playerRb.transform.position + camSway;
+        camPosition = camPosition + ((newPosition - camPosition) * camSpeed * Time.deltaTime);
 
         mainCam.transform.position = new Vector3(camPosition.x, camPosition.y, -10);
+
+        //flips player sprite
+        if(camPosition.x < playerRb.transform.position.x)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+
+        //changes player sprite
+        if(playerRb.velocity.magnitude > 3)
+        {
+            GetComponent<SpriteRenderer>().sprite = fastSprite;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sprite = slowSprite;
+        }
     }
 
     private void Shoot()
     {
-        Bullet bullet = Instantiate(bulletPf, transform.position + transform.up*2, transform.rotation);
+        Bullet bullet = Instantiate(bulletPf, transform.position + aimVector*2, playerRb.transform.rotation);
 
-        bullet.CreateBullet(transform.up);
+        bullet.CreateBullet(aimVector);
 
-        playerRb.AddForce(-transform.up, ForceMode2D.Impulse);
+        playerRb.AddForce(-aimVector, ForceMode2D.Impulse);
         //transform.position = Vector3.Lerp(transform.position, transform.position - transform.up, 1);
 
     }

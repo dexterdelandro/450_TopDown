@@ -408,7 +408,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -703,7 +703,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1029487923
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -721,7 +721,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.41, y: 2.09}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 2.41, y: 2.09}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1772,12 +1772,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5324449717369385719, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
       propertyPath: camMax.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324449717369385719, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
+      propertyPath: camSpeed
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5324449717369385719, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
+      propertyPath: fastSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: be66452adc6975d45920eed78f9bd6ea, type: 3}
+    - target: {fileID: 5324449717369385719, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
+      propertyPath: slowSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 68124ce663f7361428092139a0e1bfd0, type: 3}
+    - target: {fileID: 5324449717369385719, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
       propertyPath: swayStrength
-      value: 0.005
+      value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 6543265946365849555, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 68124ce663f7361428092139a0e1bfd0, type: 3}
     - target: {fileID: 8753500508052589919, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
       propertyPath: m_RootOrder
       value: 1
