@@ -18,10 +18,11 @@ public class RoomGenerator : MonoBehaviour
         player = GameObject.Find("player");
         lastRoom = Instantiate(startRoom, new Vector3(0,0,0), Quaternion.identity);
         
-        CreateFive();
+        CreateRooms();
     }
 
-    void CreateFive()
+    //Create a number of rooms ahead of the previous
+    void CreateRooms()
     {
         nextLoc = lastRoom.transform.position;
 
@@ -34,14 +35,14 @@ public class RoomGenerator : MonoBehaviour
     }
 
 
-    // Update is called once per frame
+    
     void Update()
     {
-        Debug.Log(Vector3.Distance(lastRoom.transform.position, player.transform.position));
+        //When player is in vicinity of the last room
         if (Vector3.Distance(lastRoom.transform.position, player.transform.position) <= 10)
         {
             nextLoc.y += 18;
-            CreateFive();
+            CreateRooms();
         }
     }
 

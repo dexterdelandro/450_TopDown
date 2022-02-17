@@ -12,12 +12,6 @@ public class RoomScript : MonoBehaviour
     private Vector3 enemyspawn1;
     private Vector3 enemyspawn2;
 
-
-    public bool roomStatus()
-    {
-        return spawned;
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +23,7 @@ public class RoomScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Check if room is cleared
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         if (enemies.Length == 0)
@@ -39,6 +34,7 @@ public class RoomScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //Spawn enemies when player enters
         if (other.tag == "Player" && spawned == false)
         {
             cleared = false;
