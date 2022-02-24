@@ -8,6 +8,11 @@ public class RoomScript : MonoBehaviour
     GameObject[] enemies;
     public bool spawned;
 
+    public GameObject[] top;
+    public GameObject[] bottom;
+    public GameObject[] left;
+    public GameObject[] right;
+
     private bool cleared;
     private Vector3 enemyspawn1;
     private Vector3 enemyspawn2;
