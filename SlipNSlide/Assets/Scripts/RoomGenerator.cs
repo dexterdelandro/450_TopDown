@@ -22,7 +22,9 @@ public class RoomGenerator : MonoBehaviour
         player = GameObject.Find("player");
         lastRoom = Instantiate(startRoom, new Vector3(0,0,0), Quaternion.identity);
 
-        //CreateRooms();
+        compatable = GameObject.Find("RoomBounds").GetComponent<RoomScript>();
+        Debug.Log(compatable);
+        CreateRooms();
     }
 
     //Create a number of rooms ahead of the previous
@@ -32,7 +34,7 @@ public class RoomGenerator : MonoBehaviour
 
         for (int i = 0; i <= 5; i++)
         {
-            //lastRoom = Instantiate(RoomSelector(), nextLoc, Quaternion.identity);
+            lastRoom = Instantiate(RoomSelector(), nextLoc, Quaternion.identity);
             activeRooms.Add(lastRoom);
         }
     }
@@ -49,41 +51,20 @@ public class RoomGenerator : MonoBehaviour
         }
     }
 
-    /*
+    
     private GameObject RoomSelector()
     {
         nextRoom = rooms[Random.Range(0, 4)];
 
-        for(int i = 0; i <= compatable.top.Length; i++)
-        {
-            if (compatable.top[i] == nextRoom)
+            if (compatable.top[1] == nextRoom)
             {
                 compatable = nextRoom.GetComponent<RoomScript>();
                 return nextRoom;
             }
-        };
-
-        for (int i = 0; i <= compatable.left.Length; i++)
-        {
-            if (compatable.left[i] == nextRoom)
-            {
-                compatable = nextRoom.GetComponent<RoomScript>();
-                return nextRoom;
-            }
-        };
-
-        for (int i = 0; i <= compatable.right.Length; i++)
-        {
-            if (compatable.right[i] == nextRoom)
-            {
-                compatable = nextRoom.GetComponent<RoomScript>();
-                return nextRoom;
-            }
-        };
 
 
-        return nextRoom;
+        return null;
     }
-    */
+    
 
 }
