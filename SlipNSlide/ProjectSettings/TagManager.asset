@@ -9,6 +9,10 @@ TagManager:
   - playerBullet
   - wall
   - Projectile
+  - Room
+  - Wall
+  - RoomSpawn
+  - Room Template
   layers:
   - Default
   - TransparentFX

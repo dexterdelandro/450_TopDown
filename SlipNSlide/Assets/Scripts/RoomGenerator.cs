@@ -46,8 +46,8 @@ public class RoomGenerator : MonoBehaviour
         //When player is in vicinity of the last room
         if (Vector3.Distance(lastRoom.transform.position, player.transform.position) <= 10)
         {
-            nextLoc.y += 15;
-            CreateRooms();
+            //nextLoc.y += 15;
+            //CreateRooms();
         }
     }
 
