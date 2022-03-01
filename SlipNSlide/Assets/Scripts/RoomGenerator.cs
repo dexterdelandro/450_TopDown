@@ -56,11 +56,11 @@ public class RoomGenerator : MonoBehaviour
     {
         nextRoom = rooms[Random.Range(0, 4)];
 
-            if (compatable.top[1] == nextRoom)
-            {
-                compatable = nextRoom.GetComponent<RoomScript>();
-                return nextRoom;
-            }
+        if (compatable.top[1] == nextRoom)
+        {
+            compatable = nextRoom.GetComponent<RoomScript>();
+            return nextRoom;
+        }
 
 
         return null;
