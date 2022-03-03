@@ -2710,6 +2710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 6916509261444380040, guid: 27986c3b7046d7d4d9904e1f01986f41, type: 3}
   spawned: 0
+  door: {fileID: 486621202847990521, guid: 1c590343bf837064f817d0b579951e2c, type: 3}
   top: []
   bottom: []
   left:

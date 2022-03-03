@@ -2538,6 +2538,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3640013964827285906}
   - component: {fileID: 3640013964827285907}
+  - component: {fileID: 6096640049762719173}
   m_Layer: 0
   m_Name: RoomBounds
   m_TagString: Untagged
@@ -2585,6 +2586,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6096640049762719173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3640013964827285909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7942d82f88dfb9b4386b1429c11a663b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 6916509261444380040, guid: 27986c3b7046d7d4d9904e1f01986f41, type: 3}
+  spawned: 0
+  door: {fileID: 486621202847990521, guid: 1c590343bf837064f817d0b579951e2c, type: 3}
+  top: []
+  bottom: []
+  left: []
+  right: []
 --- !u!1 &4232752411903591533
 GameObject:
   m_ObjectHideFlags: 0

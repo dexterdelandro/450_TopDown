@@ -13,6 +13,7 @@ TagManager:
   - Wall
   - RoomSpawn
   - Room Template
+  - Door
   layers:
   - Default
   - TransparentFX
