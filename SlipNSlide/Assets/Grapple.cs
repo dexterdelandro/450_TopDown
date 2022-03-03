@@ -12,8 +12,9 @@ public class Grapple : MonoBehaviour
 
 	public LayerMask typeToGrab;
 
-	private bool grappling = false;
+	private bool didFire = false;
 	private bool retracting = false;
+	private bool didHit = false;
 
 
 	private Vector2 targetPos;
@@ -27,29 +28,35 @@ public class Grapple : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (!grappling && Input.GetMouseButtonDown(1))
+		if (!didFire && Input.GetMouseButtonDown(1))
 		{
 			DoGrapple();
 		}
 
-
+		//This is when grapple hook hit and moving player to grapple location
 		if (retracting)
 		{
 			Vector2 grapplePos = Vector2.Lerp(transform.position, targetPos, grappleSpeed * Time.deltaTime);
 			transform.position = grapplePos;
 			lr.SetPosition(0, transform.position);
-			if (Vector2.Distance(transform.position, targetPos) < 1.0f)
+			if (Vector2.Distance(transform.position, targetPos) < 1.0f) //might need to update distance allowed
 			{
+				//reset bools ready for next shot
 				retracting = false;
-				grappling = false;
+				didFire = false;
 				lr.enabled = false;
 			}
+			//this is when grapple hook missed
+		} else if (didFire && !didHit) {
+			Debug.Log("thingy");
+			StartCoroutine(Wait(1));
+			StartCoroutine(RetractGrapple());
 		}
 	}
 
+	//fire grapple
 	private void DoGrapple()
 	{
-		Debug.Log("LOL");
 		Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 		direction = direction.normalized;
 
@@ -57,11 +64,19 @@ public class Grapple : MonoBehaviour
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, grappleDistance, typeToGrab);
 
 		//means that it hit something
-		if (hit.collider != null) 
-		
-		//Debug.Log("hit");
-		grappling = true;
-		targetPos = hit.point;
+		if (hit.collider != null)
+		{
+			targetPos = hit.point;
+			didHit = true;
+		}
+		else {
+			targetPos = transform.position + (Vector3)direction * grappleDistance;
+			didHit = false;
+		}
+
+		Debug.Log(didHit);
+		//targetPos = hit.point;
+
 		lr.enabled = true;
 		lr.positionCount = 2;
 
@@ -69,8 +84,10 @@ public class Grapple : MonoBehaviour
 		
 	}
 
+	//shoots out the grapple
 	IEnumerator FireGrapple()
 	{
+		didFire = true;
 		float t = 0;
 		float totalTime = 10;
 
@@ -88,7 +105,38 @@ public class Grapple : MonoBehaviour
 		}
 
 		lr.SetPosition(1, targetPos);
-		retracting = true;
+		if (didHit) retracting = true;
+	}
+
+	//Retracts grapple to player pos after a missed shot
+	IEnumerator RetractGrapple()
+	{
+		float t = 0;
+		float totalTime = 10;
+
+		lr.SetPosition(0, targetPos);
+		lr.SetPosition(1, transform.position);
+
+		Vector2 currentPos;
+
+		for (t = 0; t < totalTime; t += shootSpeed * Time.deltaTime)
+		{
+			currentPos = Vector2.Lerp(targetPos, transform.position, t / totalTime);
+			lr.SetPosition(0, currentPos);
+			lr.SetPosition(1, transform.position);
+			yield return null;
+		}
+
+		lr.SetPosition(1, transform.position);
+
+		//reset bools ready for next shot
+		retracting = false;
+		didFire = false;
+		lr.enabled = false;
+	}
+
+	IEnumerator Wait(float x) {
+		yield return new WaitForSeconds(x);
 	}
 
 
