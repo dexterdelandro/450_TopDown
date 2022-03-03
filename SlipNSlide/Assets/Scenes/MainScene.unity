@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 260178160}
   - component: {fileID: 260178162}
   - component: {fileID: 260178161}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall5
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.14288893, g: 0.15702751, b: 0.1792453, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -450,7 +450,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 742833271}
   - component: {fileID: 742833273}
   - component: {fileID: 742833272}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall2
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -722,6 +722,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+
 --- !u!61 &1029487923
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -759,7 +760,7 @@ GameObject:
   - component: {fileID: 1177827365}
   - component: {fileID: 1177827367}
   - component: {fileID: 1177827366}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall3
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -1084,7 +1085,7 @@ GameObject:
   - component: {fileID: 1679945949}
   - component: {fileID: 1679945951}
   - component: {fileID: 1679945950}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -1193,7 +1194,7 @@ GameObject:
   - component: {fileID: 1683353440}
   - component: {fileID: 1683353442}
   - component: {fileID: 1683353441}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (1)
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -1302,7 +1303,7 @@ GameObject:
   - component: {fileID: 1703870927}
   - component: {fileID: 1703870929}
   - component: {fileID: 1703870928}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall3 (1)
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -1554,7 +1555,7 @@ GameObject:
   - component: {fileID: 1972906266}
   - component: {fileID: 1972906268}
   - component: {fileID: 1972906267}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall4
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -1663,7 +1664,7 @@ GameObject:
   - component: {fileID: 2044417864}
   - component: {fileID: 2044417866}
   - component: {fileID: 2044417865}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall2 (1)
   m_TagString: wall
   m_Icon: {fileID: 0}

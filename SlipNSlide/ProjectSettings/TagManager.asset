@@ -9,11 +9,7 @@ TagManager:
   - playerBullet
   - wall
   - Projectile
-  - Room
-  - Wall
-  - RoomSpawn
-  - Room Template
-  - Door
+  
   layers:
   - Default
   - TransparentFX
@@ -21,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Wall
   - 
   - 
   - 

@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
         //    transform.Rotate(0, 0, -0.5f);
         //}
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
             Shoot();
             mainCam.GetComponent<CameraShake>().shakecamera(.5f, 1.5f);
