@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 29477202}
   - component: {fileID: 29477201}
   - component: {fileID: 29477199}
+  - component: {fileID: 29477200}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -156,6 +157,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startRoom: {fileID: 4080853202741682666, guid: 39dfffca8bfaf7e409e45bf3cd7695ee, type: 3}
   nextRoom: {fileID: 2935327374078028136, guid: a1474b4227ee4704f9e50eb7267dc6bb, type: 3}
+--- !u!114 &29477200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29477198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13780fddd77254849ae64ff3bff7ce8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 0}
+  shakeDuration: 0
+  shakeAmount: 0.7
+  decreaseFactor: 1
+  shaketrue: 0
 --- !u!114 &29477201
 MonoBehaviour:
   m_ObjectHideFlags: 0
