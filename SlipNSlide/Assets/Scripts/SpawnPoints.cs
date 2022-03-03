@@ -13,7 +13,7 @@ public class SpawnPoints : MonoBehaviour
     private void Start()
     {
         templates = GameObject.FindGameObjectWithTag("Room Template").GetComponent<RoomTemplates>();
-        Invoke("Spawn", 0.1f);
+        Invoke("Spawn", 1f);
         
     }
 
