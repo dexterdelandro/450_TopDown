@@ -13,11 +13,15 @@ public class Player : MonoBehaviour
     private Vector2 camPosition;
     private Vector3 camSway;
     public float camSpeed;
+    private int currentWeapon;
     private Vector3 aimVector;
     [SerializeField] private float swayStrength;
     [SerializeField] private Vector2 camMax;
     [SerializeField] private Sprite fastSprite;
     [SerializeField] private Sprite slowSprite;
+    [SerializeField] private GameObject arm;
+    [SerializeField] private Sprite[] weapons;
+    [SerializeField] private GameObject weapon;
 
     public uint health;
     Score score;
@@ -35,11 +39,38 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        currentWeapon = 0;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //screen to world point helps convert the pixel coordinates of the mouse to world coordinates
 
         aimVector = (mousePos - playerRb.position).normalized;   //make player point to mouse
+        arm.transform.up = (mousePos - playerRb.position).normalized;
+        if (GetComponent<SpriteRenderer>().flipX)
+        {
+            if (playerRb.velocity.magnitude > 3)
+            {
+                arm.transform.position = playerRb.position + new Vector2(.03f, .29f);
+            }
+            else
+            {
+                arm.transform.position = playerRb.position + new Vector2(-.177f, .17f);
+            }
+        }
+        else
+        {
+            if (playerRb.velocity.magnitude > 3)
+            {
+                arm.transform.position = playerRb.position + new Vector2(-.03f, .29f);
+            }
+            else
+            {
+                arm.transform.position = playerRb.position + new Vector2(.177f, .17f);
+            }
+        }
+        weapon.GetComponent<SpriteRenderer>().sprite = weapons[currentWeapon];
+        weapon.GetComponent<SpriteRenderer>().flipY = GetComponent<SpriteRenderer>().flipX;
+        weapon.transform.position = arm.transform.position + arm.transform.up * .65f;
+        weapon.transform.right = arm.transform.up;
 
         //if (Input.GetKey(KeyCode.LeftArrow))
         //{
