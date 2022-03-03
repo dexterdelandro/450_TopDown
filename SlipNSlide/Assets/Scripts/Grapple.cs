@@ -48,7 +48,7 @@ public class Grapple : MonoBehaviour
 			}
 			//this is when grapple hook missed
 		} else if (didFire && !didHit) {
-			Debug.Log("thingy");
+			//Debug.Log("thingy");
 			StartCoroutine(Wait(1));
 			StartCoroutine(RetractGrapple());
 		}
