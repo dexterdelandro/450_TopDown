@@ -148,6 +148,7 @@ public class Player : MonoBehaviour
         Bullet bullet = Instantiate(bulletPf, transform.position + aimVector*2, playerRb.transform.rotation);
 
         bullet.CreateBullet(aimVector);
+        bullet.transform.up = arm.transform.up;
 
         playerRb.AddForce(-aimVector, ForceMode2D.Impulse);
         //transform.position = Vector3.Lerp(transform.position, transform.position - transform.up, 1);
