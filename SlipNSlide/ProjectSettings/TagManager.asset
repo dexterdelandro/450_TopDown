@@ -9,7 +9,11 @@ TagManager:
   - playerBullet
   - wall
   - Projectile
-  
+  - Room Template
+  - Room
+  - RoomSpawn
+  - Wall
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -46,4 +50,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Floor + Walls
+    uniqueID: 3327873235
+    locked: 0
+  - name: Bullet/Grapple
+    uniqueID: 469079371
+    locked: 0
+  - name: Player + Enemies
+    uniqueID: 3480291267
     locked: 0
