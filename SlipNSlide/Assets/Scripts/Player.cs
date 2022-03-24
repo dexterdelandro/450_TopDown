@@ -96,14 +96,14 @@ public class Player : MonoBehaviour
         //    transform.Rotate(0, 0, -0.5f);
         //}
 
-<<<<<<< Updated upstream
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (Input.GetMouseButtonDown(0))
         {
             Shoot();
+            mainCam.GetComponent<CameraShake>().shakecamera(.5f, 1.5f);
         }
 
-=======
->>>>>>> Stashed changes
+
         //camera movement
 
         //adjusts sway dynamically
@@ -126,10 +126,15 @@ public class Player : MonoBehaviour
             camSway.y = -camMax.y;
         }
 
-        Vector2 newPosition = playerRb.transform.position + camSway;
-        camPosition = camPosition + ((newPosition - camPosition) * camSpeed * Time.deltaTime);
+        //had to add if statement so that these lines do not override the camera shake while shooting
+        if (!mainCam.GetComponent<CameraShake>().shaketrue)
+        {
+            Vector2 newPosition = playerRb.transform.position + camSway;
+            camPosition = camPosition + ((newPosition - camPosition) * camSpeed * Time.deltaTime);
 
-        mainCam.transform.position = new Vector3(camPosition.x, camPosition.y, -10);
+            mainCam.transform.position = new Vector3(camPosition.x, camPosition.y, -10);
+        }
+
 
         //flips player sprite
         if(camSway.x < 0)

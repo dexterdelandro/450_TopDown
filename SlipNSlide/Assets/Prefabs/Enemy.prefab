@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   awareness: 10
   attackRange: 7
   manager: {fileID: 0}
-  target: {fileID: 0}
+  target: {fileID: 8753500508052589919, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
   bullet: {fileID: 7617645779399286700, guid: f2a18ccd535a1594fb19cade831ac1fa, type: 3}
 --- !u!50 &6916509261444380044
 Rigidbody2D:
