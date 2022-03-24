@@ -22,7 +22,7 @@ public class MuzzleFlash : MonoBehaviour
 
         if(currentTime > visibleTime)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }

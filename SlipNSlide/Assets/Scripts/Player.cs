@@ -97,13 +97,6 @@ public class Player : MonoBehaviour
         //}
 
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Shoot();
-            mainCam.GetComponent<CameraShake>().shakecamera(.5f, 1.5f);
-        }
-
-
         //camera movement
 
         //adjusts sway dynamically
