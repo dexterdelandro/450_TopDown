@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     private Vector2 camPosition;
     private Vector3 camSway;
     public float camSpeed;
-    private int currentWeapon;
+    public int currentWeapon;
     private Vector3 aimVector;
     [SerializeField] private float swayStrength;
     [SerializeField] private Vector2 camMax;
@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject arm;
     [SerializeField] private Sprite[] weapons;
     [SerializeField] private GameObject weapon;
+    [SerializeField] private MuzzleFlash muzzleFlash; 
 
     public uint health;
     Score score;
@@ -32,19 +33,18 @@ public class Player : MonoBehaviour
         playerRb = GetComponent<Rigidbody2D>();
         camPosition = new Vector2(0, 0);
         camSway = new Vector2(0, 0);
-
+        currentWeapon = 0;
         health = 100;
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentWeapon = 0;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //screen to world point helps convert the pixel coordinates of the mouse to world coordinates
 
         aimVector = (mousePos - playerRb.position).normalized;   //make player point to mouse
-        arm.transform.up = (mousePos - playerRb.position).normalized;
+        arm.transform.up = aimVector;
         if (GetComponent<SpriteRenderer>().flipX)
         {
             if (playerRb.velocity.magnitude > 3)
@@ -69,7 +69,19 @@ public class Player : MonoBehaviour
         }
         weapon.GetComponent<SpriteRenderer>().sprite = weapons[currentWeapon];
         weapon.GetComponent<SpriteRenderer>().flipY = GetComponent<SpriteRenderer>().flipX;
-        weapon.transform.position = arm.transform.position + arm.transform.up * .65f;
+        weapon.transform.position = arm.transform.position + arm.transform.up * .76f + arm.transform.right * -.03f;
+        switch (currentWeapon)
+        {
+            case 0:
+                weapon.transform.position = arm.transform.position + arm.transform.up * .76f + arm.transform.right * -.03f;
+                break;
+            case 1:
+                weapon.transform.position = arm.transform.position + arm.transform.up * .34f;
+                break;
+            case 2:
+                weapon.transform.position = arm.transform.position + arm.transform.up * .34f + arm.transform.right * -.05f;
+                break;
+        }
         weapon.transform.right = arm.transform.up;
 
         //if (Input.GetKey(KeyCode.LeftArrow))
@@ -84,11 +96,14 @@ public class Player : MonoBehaviour
         //    transform.Rotate(0, 0, -0.5f);
         //}
 
+<<<<<<< Updated upstream
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
         }
 
+=======
+>>>>>>> Stashed changes
         //camera movement
 
         //adjusts sway dynamically
@@ -117,7 +132,7 @@ public class Player : MonoBehaviour
         mainCam.transform.position = new Vector3(camPosition.x, camPosition.y, -10);
 
         //flips player sprite
-        if(camPosition.x < playerRb.transform.position.x)
+        if(camSway.x < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
         }
@@ -135,11 +150,62 @@ public class Player : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sprite = slowSprite;
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+            mainCam.GetComponent<CameraShake>().shakecamera(.5f, 1.5f);
+        }
     }
 
     private void Shoot()
     {
-        Bullet bullet = Instantiate(bulletPf, transform.position + aimVector*2, playerRb.transform.rotation);
+        Bullet bullet;
+        if(camSway.x < 0)
+        {
+            switch (currentWeapon)
+            {
+                case 0:
+                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * .12f, playerRb.transform.rotation);
+                    Instantiate(muzzleFlash, arm.transform.position + aimVector * .8f + arm.transform.right * .12f, playerRb.transform.rotation);
+                    break;
+                case 1:
+                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * .06f, playerRb.transform.rotation);
+                    Instantiate(muzzleFlash, arm.transform.position + aimVector * 1f + arm.transform.right * .06f, playerRb.transform.rotation);
+                    break;
+                case 2:
+                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * .07f, playerRb.transform.rotation);
+                    Instantiate(muzzleFlash, arm.transform.position + aimVector * 1.1f + arm.transform.right * .07f, playerRb.transform.rotation);
+                    break;
+                default:
+                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * .12f, playerRb.transform.rotation);
+                    Instantiate(muzzleFlash, arm.transform.position + aimVector * .8f + arm.transform.right * .12f, playerRb.transform.rotation);
+                    break;
+
+            }
+        }
+        else
+        {
+            switch (currentWeapon)
+            {
+                case 0:
+                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * -.12f, playerRb.transform.rotation);
+                    Instantiate(muzzleFlash, arm.transform.position + aimVector * .8f + arm.transform.right * -.12f, playerRb.transform.rotation);
+                    break;
+                case 1:
+                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * -.06f, playerRb.transform.rotation);
+                    Instantiate(muzzleFlash, arm.transform.position + aimVector * 1f + arm.transform.right * -.06f, playerRb.transform.rotation);
+                    break;
+                case 2:
+                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * -.07f, playerRb.transform.rotation);
+                    Instantiate(muzzleFlash, arm.transform.position + aimVector * 1.1f + arm.transform.right * -.07f, playerRb.transform.rotation);
+                    break;
+                default:
+                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * -.12f, playerRb.transform.rotation);
+                    Instantiate(muzzleFlash, arm.transform.position + aimVector * .8f + arm.transform.right * -.12f, playerRb.transform.rotation);
+                    break;
+            }
+        }
 
         bullet.CreateBullet(aimVector);
         bullet.transform.up = arm.transform.up;
