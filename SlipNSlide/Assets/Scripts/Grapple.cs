@@ -57,6 +57,7 @@ public class Grapple : MonoBehaviour
 	//fire grapple
 	private void DoGrapple()
 	{
+		didFire = false;
 		Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 		direction = direction.normalized;
 
@@ -69,7 +70,8 @@ public class Grapple : MonoBehaviour
 			targetPos = hit.point;
 			didHit = true;
 		}
-		else {
+		else
+		{
 			targetPos = transform.position + (Vector3)direction * grappleDistance;
 			didHit = false;
 		}
@@ -87,7 +89,6 @@ public class Grapple : MonoBehaviour
 	//shoots out the grapple
 	IEnumerator FireGrapple()
 	{
-		didFire = true;
 		float t = 0;
 		float totalTime = 10;
 
@@ -106,6 +107,7 @@ public class Grapple : MonoBehaviour
 
 		lr.SetPosition(1, targetPos);
 		if (didHit) retracting = true;
+		didFire = true;
 	}
 
 	//Retracts grapple to player pos after a missed shot
