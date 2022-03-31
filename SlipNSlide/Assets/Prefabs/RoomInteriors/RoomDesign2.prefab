@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 4881313143203274421}
   - component: {fileID: 4881313143203274418}
   - component: {fileID: 4881313143203274419}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Interiors_free_48x48_34
   m_TagString: Decor
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 4881313144653573475}
   - component: {fileID: 4881313144653573472}
   - component: {fileID: 4881313144653573473}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Interiors_free_48x48_34 (1)
   m_TagString: Decor
   m_Icon: {fileID: 0}
