@@ -25,7 +25,6 @@ public class SceneController : MonoBehaviour
 
     private void Awake()
     {
-<<<<<<< Updated upstream
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             //Add onclick listeners to buttons 
@@ -39,18 +38,11 @@ public class SceneController : MonoBehaviour
             quitGame.onClick.AddListener(Quit);
         }
 
-=======
+
         if (controller != null) GameObject.Destroy(controller);
         else controller = this;
 
-        //Add onclick listeners to buttons 
-        playButton.onClick.AddListener(PlayButtonPressed);
-        helpButton.onClick.AddListener(HelpButtonPressed);
-        quitGame.onClick.AddListener(Quit);
-        closeHelpPanel.onClick.AddListener(HelpButtonPressed);
-
         DontDestroyOnLoad(this);
->>>>>>> Stashed changes
     }
 
     public void Quit()

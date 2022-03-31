@@ -183,10 +183,17 @@ public class Player : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            paused = true;
-            Time.timeScale = 0;
-            pausemenu.SetActive(true);
+            paused = !paused;
 
+            if (paused)
+            {
+                Time.timeScale = 0;
+                pausemenu.SetActive(true);
+
+            }
+            else {
+                Time.timeScale = 1;
+            }
         }
 
 
@@ -263,6 +270,7 @@ public class Player : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         pausemenu.SetActive(false);
+<<<<<<< HEAD
         paused = false;
         
     }
@@ -308,6 +316,9 @@ public class Player : MonoBehaviour
         );
     }
 
+=======
+    } 
+>>>>>>> parent of f41bcc1 (edited pause script)
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
     //    //Collide with player bullets
