@@ -521,6 +521,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13780fddd77254849ae64ff3bff7ce8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camSway: {x: 0, y: 0, z: 0}
+  camSpeed: 4
+  camMax: {x: 4, y: 3}
+  swayStrength: 0.01
+  playerRb: {fileID: 1029487919}
   camTransform: {fileID: 519420032}
   shakeDuration: 0
   shakeAmount: 0.7
@@ -1113,6 +1118,25 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!232 &1029487921
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029487918}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 1
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 1
+  m_Distance: 2.193855
+  m_MaxDistanceOnly: 0
 --- !u!4 &1029487922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8753500508052589919, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
@@ -2318,20 +2342,23 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2141730624437042234, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
+      propertyPath: joint
+      value: 
+      objectReference: {fileID: 1029487921}
       propertyPath: hook
       value: 
       objectReference: {fileID: 228973635}
     - target: {fileID: 2141730624437042234, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
       propertyPath: shootSpeed
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2141730624437042234, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
       propertyPath: grappleSpeed
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2141730624437042234, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
       propertyPath: grappleDistance
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3642698384466779753, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
       propertyPath: m_Name

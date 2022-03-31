@@ -112,33 +112,36 @@ public class Player : MonoBehaviour
 
         //adjusts sway dynamically
 
-        camSway = (Input.mousePosition - playerRb.transform.position - new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2, 0)) * swayStrength;
-        if (camSway.x > camMax.x)
-        {
-            camSway.x = camMax.x;
-        }
-        if (camSway.y > camMax.y)
-        {
-            camSway.y = camMax.y;
-        }
-        if (camSway.x < -camMax.x)
-        {
-            camSway.x = -camMax.x;
-        }
-        if (camSway.y < -camMax.y)
-        {
-            camSway.y = -camMax.y;
-        }
+        //camSway = (Input.mousePosition - playerRb.transform.position - new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2, 0)) * swayStrength;
+        //if (camSway.x > camMax.x)
+        //{
+        //    camSway.x = camMax.x;
+        //}
+        //if (camSway.y > camMax.y)
+        //{
+        //    camSway.y = camMax.y;
+        //}
+        //if (camSway.x < -camMax.x)
+        //{
+        //    camSway.x = -camMax.x;
+        //}
+        //if (camSway.y < -camMax.y)
+        //{
+        //    camSway.y = -camMax.y;
+        //}
 
-        //had to add if statement so that these lines do not override the camera shake while shooting
-        if (!mainCam.GetComponent<CameraShake>().shaketrue)
-        {
-            Vector2 newPosition = playerRb.transform.position + camSway;
-            camPosition = camPosition + ((newPosition - camPosition) * camSpeed * Time.deltaTime);
+        ////had to add if statement so that these lines do not override the camera shake while shooting
+        //if (!mainCam.GetComponent<CameraShake>().shaketrue)
+        //{
+        //    Vector2 newPosition = playerRb.transform.position + camSway;
+        //    camPosition = camPosition + ((newPosition - camPosition) * camSpeed * Time.deltaTime);
 
-            mainCam.transform.position = new Vector3(camPosition.x, camPosition.y, -10);
-        }
+        //    mainCam.transform.position = new Vector3(camPosition.x, camPosition.y, -10);
+        //}
 
+
+        camSway = mainCam.GetComponent<CameraShake>().camSway;
+        camMax = mainCam.GetComponent<CameraShake>().camMax;
 
         //flips player sprite
         if(camSway.x < 0)
