@@ -34,6 +34,9 @@ public class Player : MonoBehaviour
     Score score;
     private float shootTimer = 0;
 
+    private bool paused;
+    GameObject pausemenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +49,19 @@ public class Player : MonoBehaviour
         camSway = new Vector2(0, 0);
         currentWeapon = 0;
         health = 100;
+
+        pausemenu = GameObject.Find("PauseMenu");
+        pausemenu.SetActive(false);
+        if (pausemenu.transform.childCount > 0 && pausemenu.transform.GetChild(0).childCount > 4)
+        {
+            pausemenu.transform.GetChild(0).GetChild(2).gameObject.GetComponent<Button>().onClick.AddListener(ResumeGame);
+            pausemenu.transform.GetChild(0).GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(SceneController.controller.LoadMenu);
+            pausemenu.transform.GetChild(0).GetChild(4).gameObject.GetComponent<Button>().onClick.AddListener(SceneController.controller.LoadEnd);
+        }
+        else
+        {
+            Debug.Log("error");
+        }
     }
 
     // Update is called once per frame
@@ -186,6 +202,22 @@ public class Player : MonoBehaviour
             currentWeapon = (currentWeapon + 2) % 3;
             UpdateAmmoText();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            paused = true;
+            Time.timeScale = 0;
+            pausemenu.SetActive(true);
+
+        }
+    }
+
+    private void ResumeGame()
+    {
+        Time.timeScale = 1.0f;
+        pausemenu.SetActive(false);
+        paused = false;
+
     }
 
     private void Shoot()
