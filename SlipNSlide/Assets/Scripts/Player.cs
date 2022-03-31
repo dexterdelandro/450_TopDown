@@ -132,17 +132,10 @@ public class Player : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            paused = !paused;
+            paused = true;
+            Time.timeScale = 0;
+            pausemenu.SetActive(true);
 
-            if (paused)
-            {
-                Time.timeScale = 0;
-                pausemenu.SetActive(true);
-
-            }
-            else {
-                Time.timeScale = 1;
-            }
         }
 
 >>>>>>> Stashed changes
@@ -164,7 +157,11 @@ public class Player : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         pausemenu.SetActive(false);
-    } 
+        paused = false;
+        
+    }
+
+
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
     //    //Collide with player bullets
