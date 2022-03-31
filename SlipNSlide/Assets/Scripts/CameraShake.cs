@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
+
+    public Vector3 camSway;
+    public float camSpeed;
+    public Vector2 camMax;
+    [SerializeField] private float swayStrength;
+
+    public Rigidbody2D playerRb;
     // Transform of the camera to shake. Grabs the gameObject's transform
     // if null.
     public Transform camTransform;
@@ -29,6 +36,31 @@ public class CameraShake : MonoBehaviour
 
     void Update()
     {
+        camSway = (Input.mousePosition - playerRb.transform.position - new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2, 0)) * swayStrength;
+        if (camSway.x > camMax.x)
+        {
+            camSway.x = camMax.x;
+        }
+        if (camSway.y > camMax.y)
+        {
+            camSway.y = camMax.y;
+        }
+        if (camSway.x < -camMax.x)
+        {
+            camSway.x = -camMax.x;
+        }
+        if (camSway.y < -camMax.y)
+        {
+            camSway.y = -camMax.y;
+        }
+
+        //Add camera sway to camera pos
+        Vector2 newPosition = playerRb.transform.position + camSway;
+        transform.position = (Vector2)transform.position + ((newPosition - (Vector2)transform.position) * camSpeed * Time.deltaTime);
+
+        transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+
+        //do camera shake
         if (shaketrue)
         {
             if (shakeDuration > 0)
@@ -42,6 +74,8 @@ public class CameraShake : MonoBehaviour
                 shaketrue = false;
             }
         }
+
+      
     }
 
     public void shakecamera(float _shakeDuration, float _shakeAmount)

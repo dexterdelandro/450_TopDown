@@ -51,7 +51,12 @@ public class SpawnPoints : MonoBehaviour
     {
         if(collision.CompareTag("RoomSpawn") && collision.GetComponent<SpawnPoints>().spawned == true)
         {
-            Destroy(gameObject);
+            if (collision.GetComponent<SpawnPoints>().spawned == false && spawned == false)
+            {
+                Instantiate(templates.blocker, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+            spawned = true;
         }
     }
 }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8753500508052589919}
+  - component: {fileID: 2141730624437042234}
   - component: {fileID: 5324449717369385719}
   - component: {fileID: 6543265946365849555}
   m_Layer: 0
@@ -32,6 +33,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2141730624437042234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3642698384466779753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c24666238f3ad48aceb10a485cc254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grappleDistance: 0
+  grappleSpeed: 0
+  shootSpeed: 0
+  typeToGrab:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &5324449717369385719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,6 +63,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee5c63c7bc6b3946be3752f6979e193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPf: {fileID: 0}
+  mainCam: {fileID: 0}
+  camSpeed: 0
+  swayStrength: 0
+  camMax: {x: 0, y: 0}
+  fastSprite: {fileID: 0}
+  slowSprite: {fileID: 0}
+  arm: {fileID: 0}
+  weapons: []
+  weapon: {fileID: 0}
+  health: 0
 --- !u!212 &6543265946365849555
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -81,8 +111,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -814676029
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0cc5b493954dc4246988706ef94890f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
