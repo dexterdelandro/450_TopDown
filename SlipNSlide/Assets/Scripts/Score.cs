@@ -9,6 +9,7 @@ public class Score : MonoBehaviour
     public uint score;
     Text scoreText;
 
+    uint health;
     Text healthText;
 
     bool end;
@@ -22,6 +23,7 @@ public class Score : MonoBehaviour
         score = 0;
         scoreText = GameObject.Find("TextScore").GetComponent<Text>();
 
+        health = 100;
         healthText = GameObject.Find("TextHealth").GetComponent<Text>();
 
         playerScript = GameObject.Find("player").GetComponent<Player>();
@@ -40,7 +42,7 @@ public class Score : MonoBehaviour
 
         if(playerScript.health <= 0 && !end)
         {
-            SceneController.controller.LoadEnd();
+            SceneManager.LoadScene(2);
             end = true;
         }
 
