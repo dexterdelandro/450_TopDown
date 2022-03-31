@@ -14,6 +14,8 @@ TagManager:
   - RoomSpawn
   - Wall
   - Door
+  - Decor
+  - EnemySpawn
   layers:
   - Default
   - TransparentFX
@@ -50,6 +52,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Decor
+    uniqueID: 2697036787
     locked: 0
   - name: Floor + Walls
     uniqueID: 3327873235
