@@ -184,6 +184,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
             paused = !paused;
+<<<<<<< HEAD
 
             if (paused)
             {
@@ -202,6 +203,18 @@ public class Player : MonoBehaviour
         if(magAmmo[currentWeapon] == 0 && shootTimer <= 0)
         {
             Reload(currentWeapon);
+=======
+
+            if (paused)
+            {
+                Time.timeScale = 0;
+                pausemenu.SetActive(true);
+
+            }
+            else {
+                Time.timeScale = 1;
+            }
+>>>>>>> parent of f41bcc1 (edited pause script)
         }
 
         if(Input.GetAxis("Mouse ScrollWheel") > 0f)
@@ -271,6 +284,7 @@ public class Player : MonoBehaviour
         Time.timeScale = 1.0f;
         pausemenu.SetActive(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
         paused = false;
         
     }
@@ -316,6 +330,9 @@ public class Player : MonoBehaviour
         );
     }
 
+=======
+    } 
+>>>>>>> parent of f41bcc1 (edited pause script)
 =======
     } 
 >>>>>>> parent of f41bcc1 (edited pause script)
