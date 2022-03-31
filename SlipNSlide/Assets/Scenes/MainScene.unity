@@ -1623,7 +1623,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029487918}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2395,6 +2395,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580334033}
   m_CullTransparentMesh: 1
+
 --- !u!1 &1679945948
 GameObject:
   m_ObjectHideFlags: 0
@@ -3254,7 +3255,7 @@ PrefabInstance:
     - target: {fileID: 2141730624437042234, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
       propertyPath: hook
       value: 
-      objectReference: {fileID: 980052083869776581, guid: aba328887cbd4e9428fe966e40891600, type: 3}
+      objectReference: {fileID: 1497720905}
     - target: {fileID: 2141730624437042234, guid: fa8e12f99cc3f2148a10e234411dbf15, type: 3}
       propertyPath: joint
       value: 
