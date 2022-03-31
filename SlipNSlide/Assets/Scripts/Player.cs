@@ -34,6 +34,17 @@ public class Player : MonoBehaviour
     Score score;
     private float shootTimer = 0;
 
+    private bool paused;
+    GameObject pausemenu;
+
+    private void Awake()
+    {
+        pausemenu = GameObject.Find("PauseMenu");
+        pausemenu.SetActive(false);
+
+        
+
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +57,17 @@ public class Player : MonoBehaviour
         camSway = new Vector2(0, 0);
         currentWeapon = 0;
         health = 100;
+
+        if (pausemenu.transform.childCount > 0 && pausemenu.transform.GetChild(0).childCount > 4)
+        {
+            pausemenu.transform.GetChild(0).GetChild(2).gameObject.GetComponent<Button>().onClick.AddListener(ResumeGame);
+            pausemenu.transform.GetChild(0).GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(SceneController.controller.LoadMenu);
+            pausemenu.transform.GetChild(0).GetChild(4).gameObject.GetComponent<Button>().onClick.AddListener(SceneController.controller.LoadEnd);
+        }
+        else
+        {
+            Debug.Log("error");
+        }
     }
 
     // Update is called once per frame
@@ -95,17 +117,7 @@ public class Player : MonoBehaviour
         }
         weapon.transform.right = arm.transform.up;
 
-        //if (Input.GetKey(KeyCode.LeftArrow))
-        //{
-        //    transform.Rotate(0, 0, 0.5f);
-
-        //    transform.up = (mousePos - playerRb.position).normalized;
-        //}
-
-        //if (Input.GetKey(KeyCode.RightArrow))
-        //{
-        //    transform.Rotate(0, 0, -0.5f);
-        //}
+        
 
 
         //camera movement
@@ -163,11 +175,21 @@ public class Player : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = slowSprite;
         }
 
+
         if ((magAmmo[currentWeapon] > 0) && (Input.GetMouseButtonDown(0) || (Input.GetMouseButton(0) && shootTimer <= 0)))
         {
             Shoot();
             mainCam.GetComponent<CameraShake>().shakecamera(.5f, 1.5f);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            paused = true;
+            Time.timeScale = 0;
+            pausemenu.SetActive(true);
+
+        }
+
+
         shootTimer -= Time.deltaTime;
 
         if(magAmmo[currentWeapon] == 0 && shootTimer <= 0)
@@ -235,6 +257,16 @@ public class Player : MonoBehaviour
         //transform.position = Vector3.Lerp(transform.position, transform.position - transform.up, 1);
 
     }
+
+
+    private void ResumeGame()
+    {
+        Time.timeScale = 1.0f;
+        pausemenu.SetActive(false);
+        paused = false;
+        
+    }
+
 
     private void FireBullet(float rightShift, float muzzleDistance, float forceModifier, float damage, float speed, float angle)
     {
