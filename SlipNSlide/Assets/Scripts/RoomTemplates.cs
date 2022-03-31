@@ -9,6 +9,10 @@ public class RoomTemplates : MonoBehaviour
     public GameObject[] leftR;
     public GameObject[] rightR;
 
+    public GameObject[] LayOuts;
+
+    public GameObject blocker;
+
     // Start is called before the first frame update
     void Start()
     {
