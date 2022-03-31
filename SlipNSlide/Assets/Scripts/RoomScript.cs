@@ -102,7 +102,7 @@ public class RoomScript : MonoBehaviour
         }
         else if(parent.name == "B(Clone)")
         {
-            Instantiate(door, transform.position + new Vector3(0, -8, 0), Quaternion.identity);
+            Instantiate(door, transform.position + new Vector3(0, -7, 0), Quaternion.identity);
         }
         else if (parent.name == "L(Clone)")
         {
