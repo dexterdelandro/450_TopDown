@@ -5,18 +5,17 @@ using UnityEngine;
 public class bulletScript : MonoBehaviour
 {
     public float speed;
+    private uint damage;
 
 
     private Transform player;
-    private Vector3 destination;
-    private Vector3 origin;
+    public Vector3 destination;
+    public Vector3 origin;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        destination = new Vector2(player.position.x, player.position.y);
-        origin = transform.position;
     }
 
     // Update is called once per frame
@@ -32,15 +31,36 @@ public class bulletScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Player>().health -= 10;
+            collision.gameObject.GetComponent<Player>().health -= damage;
         }
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Physics2D.IgnoreCollision(gameObject.GetComponent<CircleCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
             return;
         }
+        if (collision.gameObject.CompareTag("enemyBullet"))
+        {
+            Physics2D.IgnoreCollision(gameObject.GetComponent<CircleCollider2D>(), collision.gameObject.GetComponent<CircleCollider2D>());
+            return;
+        }
 
 
         Destroy(gameObject);
+    }
+
+    public void SetDamage(uint d)
+    {
+        damage = d;
+    }
+
+    public void SetSpeed(float s)
+    {
+        speed = s;
+    }
+
+    public void SetRotation(Vector3 target)
+    {
+        origin = transform.position;
+        destination = origin + target;
     }
 }
