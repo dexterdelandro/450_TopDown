@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Runtime.InteropServices;
+
 
 public class SceneController : MonoBehaviour
 {
@@ -13,18 +15,33 @@ public class SceneController : MonoBehaviour
     public Button quitGame;
     public Button closeHelpPanel;
 
+    //close window in webgl
+    //taken from https://answers.unity.com/questions/1576906/close-tab-from-webgl-build.html
+    [DllImport("__Internal")]
+    private static extern void closewindow();
+
+
     private void Awake()
     {
-        //Add onclick listeners to buttons 
-        playButton.onClick.AddListener(PlayButtonPressed);
-        helpButton.onClick.AddListener(HelpButtonPressed);
-        quitGame.onClick.AddListener(Quit);
-        closeHelpPanel.onClick.AddListener(HelpButtonPressed);
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            //Add onclick listeners to buttons 
+            playButton.onClick.AddListener(PlayButtonPressed);
+            helpButton.onClick.AddListener(HelpButtonPressed);
+            quitGame.onClick.AddListener(Quit);
+            closeHelpPanel.onClick.AddListener(HelpButtonPressed);
+        }else if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            playButton.onClick.AddListener(PlayButtonPressed);
+            quitGame.onClick.AddListener(Quit);
+        }
+
     }
 
     public void Quit()
     {
         Application.Quit();
+        closewindow();
     }
 
     //Loads the game scene which should be at buildindex 1 
@@ -43,6 +60,11 @@ public class SceneController : MonoBehaviour
         {
             helpPanel.SetActive(false);
         }
+    }
+
+    public void EndScene()
+    {
+        SceneManager.LoadScene(2);
     }
 
 }
