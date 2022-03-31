@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
         }
         weapon.transform.right = arm.transform.up;
 
-        
+
 
 
         //camera movement
@@ -156,7 +156,7 @@ public class Player : MonoBehaviour
         camMax = mainCam.GetComponent<CameraShake>().camMax;
 
         //flips player sprite
-        if(camSway.x < 0)
+        if (camSway.x < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
         }
@@ -166,7 +166,7 @@ public class Player : MonoBehaviour
         }
 
         //changes player sprite
-        if(playerRb.velocity.magnitude > 3)
+        if (playerRb.velocity.magnitude > 3)
         {
             GetComponent<SpriteRenderer>().sprite = fastSprite;
         }
@@ -184,7 +184,6 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
             paused = !paused;
-<<<<<<< HEAD
 
             if (paused)
             {
@@ -200,33 +199,40 @@ public class Player : MonoBehaviour
 
         shootTimer -= Time.deltaTime;
 
-        if(magAmmo[currentWeapon] == 0 && shootTimer <= 0)
+        if (magAmmo[currentWeapon] == 0 && shootTimer <= 0)
         {
             Reload(currentWeapon);
-=======
+
 
             if (paused)
             {
                 Time.timeScale = 0;
                 pausemenu.SetActive(true);
 
-            }
-            else {
-                Time.timeScale = 1;
-            }
->>>>>>> parent of f41bcc1 (edited pause script)
-        }
 
-        if(Input.GetAxis("Mouse ScrollWheel") > 0f)
-        {
-            currentWeapon = (currentWeapon + 1) % 3;
-            UpdateAmmoText();
 
-        }
-        if(Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            currentWeapon = (currentWeapon + 2) % 3;
-            UpdateAmmoText();
+                if (paused)
+                {
+                    Time.timeScale = 0;
+                    pausemenu.SetActive(true);
+
+                }
+                else {
+                    Time.timeScale = 1;
+                }
+            }
+
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+            {
+                currentWeapon = (currentWeapon + 1) % 3;
+                UpdateAmmoText();
+
+            }
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+            {
+                currentWeapon = (currentWeapon + 2) % 3;
+                UpdateAmmoText();
+            }
         }
     }
 
@@ -283,8 +289,7 @@ public class Player : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         pausemenu.SetActive(false);
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         paused = false;
         
     }
@@ -330,12 +335,8 @@ public class Player : MonoBehaviour
         );
     }
 
-=======
-    } 
->>>>>>> parent of f41bcc1 (edited pause script)
-=======
-    } 
->>>>>>> parent of f41bcc1 (edited pause script)
+
+    
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
     //    //Collide with player bullets
