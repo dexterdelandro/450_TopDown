@@ -22,6 +22,17 @@ public class Player : MonoBehaviour
     public uint health;
     Score score;
 
+    private bool paused;
+    GameObject pausemenu;
+
+    private void Awake()
+    {
+        pausemenu = GameObject.Find("PauseMenu");
+        pausemenu.SetActive(false);
+
+        
+
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +41,17 @@ public class Player : MonoBehaviour
         camSway = new Vector2(0, 0);
 
         health = 100;
+
+        if (pausemenu.transform.childCount > 0 && pausemenu.transform.GetChild(0).childCount > 4)
+        {
+            pausemenu.transform.GetChild(0).GetChild(2).gameObject.GetComponent<Button>().onClick.AddListener(ResumeGame);
+            pausemenu.transform.GetChild(0).GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(SceneController.controller.LoadMenu);
+            pausemenu.transform.GetChild(0).GetChild(4).gameObject.GetComponent<Button>().onClick.AddListener(SceneController.controller.LoadEnd);
+        }
+        else
+        {
+            Debug.Log("error");
+        }
     }
 
     // Update is called once per frame
@@ -41,17 +63,7 @@ public class Player : MonoBehaviour
 
         aimVector = (mousePos - playerRb.position).normalized;   //make player point to mouse
 
-        //if (Input.GetKey(KeyCode.LeftArrow))
-        //{
-        //    transform.Rotate(0, 0, 0.5f);
-
-        //    transform.up = (mousePos - playerRb.position).normalized;
-        //}
-
-        //if (Input.GetKey(KeyCode.RightArrow))
-        //{
-        //    transform.Rotate(0, 0, -0.5f);
-        //}
+        
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -110,6 +122,30 @@ public class Player : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sprite = slowSprite;
         }
+<<<<<<< Updated upstream
+=======
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+            mainCam.GetComponent<CameraShake>().shakecamera(.5f, 1.5f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            paused = !paused;
+
+            if (paused)
+            {
+                Time.timeScale = 0;
+                pausemenu.SetActive(true);
+
+            }
+            else {
+                Time.timeScale = 1;
+            }
+        }
+
+>>>>>>> Stashed changes
     }
 
     private void Shoot()
@@ -123,6 +159,12 @@ public class Player : MonoBehaviour
 
     }
 
+
+    private void ResumeGame()
+    {
+        Time.timeScale = 1.0f;
+        pausemenu.SetActive(false);
+    } 
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
     //    //Collide with player bullets

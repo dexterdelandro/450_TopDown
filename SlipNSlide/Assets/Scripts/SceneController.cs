@@ -9,6 +9,8 @@ using System.Runtime.InteropServices;
 
 public class SceneController : MonoBehaviour
 {
+    public static SceneController controller; //this is our single instance to be used
+
     public GameObject helpPanel;
     public Button playButton;
     public Button helpButton;
@@ -23,6 +25,7 @@ public class SceneController : MonoBehaviour
 
     private void Awake()
     {
+<<<<<<< Updated upstream
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             //Add onclick listeners to buttons 
@@ -36,12 +39,34 @@ public class SceneController : MonoBehaviour
             quitGame.onClick.AddListener(Quit);
         }
 
+=======
+        if (controller != null) GameObject.Destroy(controller);
+        else controller = this;
+
+        //Add onclick listeners to buttons 
+        playButton.onClick.AddListener(PlayButtonPressed);
+        helpButton.onClick.AddListener(HelpButtonPressed);
+        quitGame.onClick.AddListener(Quit);
+        closeHelpPanel.onClick.AddListener(HelpButtonPressed);
+
+        DontDestroyOnLoad(this);
+>>>>>>> Stashed changes
     }
 
     public void Quit()
     {
         Application.Quit();
         closewindow();
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void LoadEnd()
+    {
+        SceneManager.LoadScene(2);
     }
 
     //Loads the game scene which should be at buildindex 1 
