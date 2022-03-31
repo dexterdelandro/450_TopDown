@@ -300,6 +300,7 @@ MonoBehaviour:
   - {fileID: 375386849807217680, guid: 302ac82e72b67dc4595e0727bc08577b, type: 3}
   - {fileID: 4291859991220400243, guid: c969c1233d3c1e44091c72052c5975b6, type: 3}
   - {fileID: 5778650402139272867, guid: a1cdae1926dc51244be6b171a2fd1e36, type: 3}
+  blocker: {fileID: 7094492137738471785, guid: 8ba5aa5a257d0ae4698e01b9887fa864, type: 3}
 --- !u!4 &239350606
 Transform:
   m_ObjectHideFlags: 0

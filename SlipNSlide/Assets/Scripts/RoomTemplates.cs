@@ -11,6 +11,8 @@ public class RoomTemplates : MonoBehaviour
 
     public GameObject[] LayOuts;
 
+    public GameObject blocker;
+
     // Start is called before the first frame update
     void Start()
     {
