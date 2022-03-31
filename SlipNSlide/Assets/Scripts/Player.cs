@@ -19,17 +19,28 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector2 camMax;
     [SerializeField] private Sprite fastSprite;
     [SerializeField] private Sprite slowSprite;
+    [SerializeField] private Text ammoText;
     [SerializeField] private GameObject arm;
     [SerializeField] private Sprite[] weapons;
+    [SerializeField] private int[] ammo;
+    [SerializeField] private int[] magAmmo;
+    [SerializeField] private int[] magSize;
+    [SerializeField] private float[] fireRate;
+    [SerializeField] private float[] reloadSpeed;
     [SerializeField] private GameObject weapon;
     [SerializeField] private MuzzleFlash muzzleFlash; 
 
     public uint health;
     Score score;
+    private float shootTimer = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        for(int i = 0; i<magAmmo.Length; i++)
+        {
+            Reload(i);
+        }
         playerRb = GetComponent<Rigidbody2D>();
         camPosition = new Vector2(0, 0);
         camSway = new Vector2(0, 0);
@@ -149,37 +160,50 @@ public class Player : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = slowSprite;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if ((magAmmo[currentWeapon] > 0) && (Input.GetMouseButtonDown(0) || (Input.GetMouseButton(0) && shootTimer <= 0)))
         {
             Shoot();
             mainCam.GetComponent<CameraShake>().shakecamera(.5f, 1.5f);
+        }
+        shootTimer -= Time.deltaTime;
+
+        if(magAmmo[currentWeapon] == 0 && shootTimer <= 0)
+        {
+            Reload(currentWeapon);
+        }
+
+        if(Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            currentWeapon = (currentWeapon + 1) % 3;
+            UpdateAmmoText();
+
+        }
+        if(Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            currentWeapon = (currentWeapon + 2) % 3;
+            UpdateAmmoText();
         }
     }
 
     private void Shoot()
     {
-        Bullet bullet;
+        magAmmo[currentWeapon]--;
+        UpdateAmmoText();
         if(camSway.x < 0)
         {
             switch (currentWeapon)
             {
                 case 0:
-                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * .12f, playerRb.transform.rotation);
-                    Instantiate(muzzleFlash, arm.transform.position + aimVector * .8f + arm.transform.right * .12f, playerRb.transform.rotation);
+                    FireBullet(.12f, .8f, 1, 1, 20, 0);
                     break;
                 case 1:
-                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * .06f, playerRb.transform.rotation);
-                    Instantiate(muzzleFlash, arm.transform.position + aimVector * 1f + arm.transform.right * .06f, playerRb.transform.rotation);
+                    FireBullet(.06f, 1, 2, 1, 20, 0);
+                    FireBullet(0f, 1, 2, 1, 20, Mathf.PI / 24);
+                    FireBullet(.12f, 1, 2, 1, 20, -Mathf.PI / 24);
                     break;
                 case 2:
-                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * .07f, playerRb.transform.rotation);
-                    Instantiate(muzzleFlash, arm.transform.position + aimVector * 1.1f + arm.transform.right * .07f, playerRb.transform.rotation);
+                    FireBullet(.07f, 1.1f, .3f, .5f, 20, 0);
                     break;
-                default:
-                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * .12f, playerRb.transform.rotation);
-                    Instantiate(muzzleFlash, arm.transform.position + aimVector * .8f + arm.transform.right * .12f, playerRb.transform.rotation);
-                    break;
-
             }
         }
         else
@@ -187,30 +211,66 @@ public class Player : MonoBehaviour
             switch (currentWeapon)
             {
                 case 0:
-                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * -.12f, playerRb.transform.rotation);
-                    Instantiate(muzzleFlash, arm.transform.position + aimVector * .8f + arm.transform.right * -.12f, playerRb.transform.rotation);
+                    FireBullet(-.12f, .8f, 1, 1, 20, 0);
                     break;
                 case 1:
-                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * -.06f, playerRb.transform.rotation);
-                    Instantiate(muzzleFlash, arm.transform.position + aimVector * 1f + arm.transform.right * -.06f, playerRb.transform.rotation);
+                    FireBullet(-.06f, 1, 2, 1, 20, 0);
+                    FireBullet(-.12f, 1, 2, 1, 20, Mathf.PI / 24);
+                    FireBullet(0f, 1, 2, 1, 20, -Mathf.PI / 24);
                     break;
                 case 2:
-                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * -.07f, playerRb.transform.rotation);
-                    Instantiate(muzzleFlash, arm.transform.position + aimVector * 1.1f + arm.transform.right * -.07f, playerRb.transform.rotation);
-                    break;
-                default:
-                    bullet = Instantiate(bulletPf, arm.transform.position + aimVector * 2 + arm.transform.right * -.12f, playerRb.transform.rotation);
-                    Instantiate(muzzleFlash, arm.transform.position + aimVector * .8f + arm.transform.right * -.12f, playerRb.transform.rotation);
+                    FireBullet(-.07f, 1.1f, .3f, .5f, 20, 0);
                     break;
             }
         }
+        shootTimer = fireRate[currentWeapon];
+        if (magAmmo[currentWeapon] == 0)
+        {
+            shootTimer = reloadSpeed[currentWeapon];
+        }
 
-        bullet.CreateBullet(aimVector);
-        bullet.transform.up = arm.transform.up;
-
-        playerRb.AddForce(-aimVector, ForceMode2D.Impulse);
         //transform.position = Vector3.Lerp(transform.position, transform.position - transform.up, 1);
 
+    }
+
+    private void FireBullet(float rightShift, float muzzleDistance, float forceModifier, float damage, float speed, float angle)
+    {
+        Bullet bullet = Instantiate(bulletPf, arm.transform.position + aimVector * (muzzleDistance + .12f) + arm.transform.right * rightShift, playerRb.transform.rotation);
+        Instantiate(muzzleFlash, arm.transform.position + aimVector * muzzleDistance + arm.transform.right * rightShift, playerRb.transform.rotation);
+        playerRb.AddForce(-aimVector * forceModifier, ForceMode2D.Impulse);
+        bullet.SetDamage(damage);
+        bullet.SetSpeed(speed);
+        bullet.CreateBullet(rotate(aimVector, angle));
+        bullet.transform.up = arm.transform.up;
+    }
+
+    private void Reload(int weapon)
+    {
+        if (ammo[weapon] >= magSize[weapon])
+        {
+            magAmmo[weapon] = magSize[weapon];
+            ammo[weapon] -= magSize[weapon];
+        }
+        else if (ammo[weapon] >= 0)
+        {
+            magAmmo[weapon] = ammo[weapon];
+            ammo[weapon] = 0;
+        }
+        UpdateAmmoText();
+    }
+
+    private void UpdateAmmoText()
+    {
+        ammoText.text = magAmmo[currentWeapon] + "/" + ammo[currentWeapon];
+    }
+
+    //from Boz0r on unity forum: https://forum.unity.com/threads/whats-the-best-way-to-rotate-a-vector2-in-unity.729605/
+    private Vector2 rotate(Vector2 v, float angle)
+    {
+        return new Vector2(
+            v.x * Mathf.Cos(angle) - v.y * Mathf.Sin(angle),
+            v.x * Mathf.Sin(angle) + v.y * Mathf.Cos(angle)
+        );
     }
 
     //private void OnTriggerEnter2D(Collider2D collision)

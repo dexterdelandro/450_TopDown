@@ -9,6 +9,7 @@ public class Grapple : MonoBehaviour
 	public float grappleDistance;
 	public float grappleSpeed;
 	public float shootSpeed;
+	[SerializeField] private GameObject hook;
 
 	public LayerMask typeToGrab;
 
@@ -37,6 +38,8 @@ public class Grapple : MonoBehaviour
 		if (retracting)
 		{
 			Vector2 grapplePos = Vector2.Lerp(transform.position, targetPos, grappleSpeed * Time.deltaTime);
+			hook.transform.position = targetPos;
+			hook.transform.right = targetPos - (Vector2)transform.position;
 			transform.position = grapplePos;
 			lr.SetPosition(0, transform.position);
 			if (Vector2.Distance(transform.position, targetPos) < 1.0f) //might need to update distance allowed
@@ -47,11 +50,13 @@ public class Grapple : MonoBehaviour
 				lr.enabled = false;
 			}
 			//this is when grapple hook missed
-		} else if (didFire && !didHit) {
+		} else if (didFire && !didHit)
+		{
 			//Debug.Log("thingy");
 			StartCoroutine(Wait(1));
 			StartCoroutine(RetractGrapple());
 		}
+		hook.GetComponent<SpriteRenderer>().enabled = lr.enabled;
 	}
 
 	//fire grapple
@@ -102,6 +107,8 @@ public class Grapple : MonoBehaviour
 			currentPos = Vector2.Lerp(transform.position, targetPos, t / totalTime);
 			lr.SetPosition(0, transform.position);
 			lr.SetPosition(1, currentPos);
+			hook.transform.position = currentPos;
+			hook.transform.right = currentPos - (Vector2)transform.position;
 			yield return null;
 		}
 
@@ -126,6 +133,8 @@ public class Grapple : MonoBehaviour
 			currentPos = Vector2.Lerp(targetPos, transform.position, t / totalTime);
 			lr.SetPosition(0, currentPos);
 			lr.SetPosition(1, transform.position);
+			hook.transform.position = currentPos;
+			hook.transform.right = currentPos - (Vector2)transform.position;
 			yield return null;
 		}
 
