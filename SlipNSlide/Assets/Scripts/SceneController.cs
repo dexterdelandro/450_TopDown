@@ -54,17 +54,22 @@ public class SceneController : MonoBehaviour
     public void LoadMenu()
     {
         SceneManager.LoadScene(0);
+        GameObject.Destroy(GameObject.Find("EventSystem"));
     }
 
     public void LoadEnd()
     {
         SceneManager.LoadScene(2);
+        GameObject.Destroy(GameObject.Find("EventSystem"));
+
     }
 
     //Loads the game scene which should be at buildindex 1 
     public void PlayButtonPressed()
     {
         SceneManager.LoadScene(1);
+        GameObject.Destroy(GameObject.Find("EventSystem"));
+
     }
 
     public void HelpButtonPressed()

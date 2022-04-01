@@ -12,7 +12,6 @@ public class Score : MonoBehaviour
     uint health;
     Text healthText;
 
-    bool end;
 
     Player playerScript;
 
@@ -40,10 +39,9 @@ public class Score : MonoBehaviour
 
         healthText.text = $"Health: {playerScript.health}";
 
-        if (playerScript.health <= 0 && !end)
+        if (playerScript.health <= 0 )
         {
             SceneController.controller.EndScene();
-            end = true;
         }
 
         if (SceneManager.GetActiveScene().buildIndex == 2 && GameObject.Find("Canvas"))
