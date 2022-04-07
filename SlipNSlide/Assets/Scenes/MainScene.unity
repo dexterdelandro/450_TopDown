@@ -2179,6 +2179,42 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -967094061
       objectReference: {fileID: 0}
+    - target: {fileID: 343988151210916435, guid: 407e8f752950cd940a59f41a362c5a72, type: 3}
+      propertyPath: m_TileAssetArray.Array.data[5].m_RefCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 343988151210916435, guid: 407e8f752950cd940a59f41a362c5a72, type: 3}
+      propertyPath: m_TileAssetArray.Array.data[7].m_RefCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 343988151210916435, guid: 407e8f752950cd940a59f41a362c5a72, type: 3}
+      propertyPath: m_Tiles.Array.data[41].second.m_TileIndex
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 343988151210916435, guid: 407e8f752950cd940a59f41a362c5a72, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_RefCount
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 343988151210916435, guid: 407e8f752950cd940a59f41a362c5a72, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[1].m_RefCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 343988151210916435, guid: 407e8f752950cd940a59f41a362c5a72, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[2].m_RefCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 343988151210916435, guid: 407e8f752950cd940a59f41a362c5a72, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[5].m_RefCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 343988151210916435, guid: 407e8f752950cd940a59f41a362c5a72, type: 3}
+      propertyPath: m_Tiles.Array.data[41].second.m_TileMatrixIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 343988151210916435, guid: 407e8f752950cd940a59f41a362c5a72, type: 3}
+      propertyPath: m_Tiles.Array.data[41].second.m_TileSpriteIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 343988151238620953, guid: 407e8f752950cd940a59f41a362c5a72, type: 3}
       propertyPath: m_Name
       value: LRBT
