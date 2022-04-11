@@ -18,6 +18,7 @@ public class RoomScript : MonoBehaviour
     public GameObject[] right;
     private Transform parent;
 
+
     private int rand;
     private RoomTemplates layout;
 
@@ -29,6 +30,7 @@ public class RoomScript : MonoBehaviour
     {
         parent = this.transform.parent;
         spawned = false;
+
 
         layout = GameObject.FindGameObjectWithTag("Room Template").GetComponent<RoomTemplates>();
         PickLayout();
@@ -57,7 +59,14 @@ public class RoomScript : MonoBehaviour
             SpawnDoors();
             SpawnEnemies();
             spawned = true;
+
+
+            if (parent.tag == "LastRoom")
+            {
+                SpawnCluster();
+            }
         }
+
     }
 
     void SpawnEnemies()
@@ -81,12 +90,12 @@ public class RoomScript : MonoBehaviour
 
     void SpawnDoors()
     {
-        if(parent.name == "TB(Clone)")
+        if(parent.name == "TB(Clone)" || parent.name == "TB")
         {
             Instantiate(door, transform.position + new Vector3(0, 8, 0), Quaternion.identity);
             Instantiate(door, transform.position + new Vector3(0, -8, 0), Quaternion.identity);
         }
-        else if (parent.name == "T(Clone)")
+        else if (parent.name == "T(Clone)" || parent.name == "T")
         {
             Instantiate(door, transform.position + new Vector3(0, 8, 0), Quaternion.identity);
         }
@@ -143,5 +152,48 @@ public class RoomScript : MonoBehaviour
         rand = Random.Range(0, layout.LayOuts.Length);
 
         Instantiate(layout.LayOuts[rand], transform.position, Quaternion.identity);
+    }
+
+    void SpawnCluster()
+    {
+        if (parent.name == "TB(Clone)" || parent.name == "TB")
+        {
+            rand = Random.Range(0, layout.bottomCluster.Length);
+            Instantiate(layout.bottomCluster[rand], parent.transform.position + new Vector3(0, 15, 0), Quaternion.identity);
+        }
+        else if (parent.name == "T(Clone)" || parent.name == "T")
+        {
+            rand = Random.Range(0, layout.bottomCluster.Length);
+            Instantiate(layout.bottomCluster[rand], parent.transform.position + new Vector3(0, 15, 0), Quaternion.identity);
+        }
+        else if (parent.name == "TL(Clone)" || parent.name == "TL")
+        {
+        }
+        else if (parent.name == "TR(Clone)" || parent.name == "TR")
+        {
+        }
+        else if (parent.name == "B(Clone)" || parent.name == "B")
+        {
+        }
+        else if (parent.name == "L(Clone)" || parent.name == "L")
+        {
+            rand = Random.Range(0, layout.rightCluster.Length);
+            Instantiate(layout.rightCluster[rand], parent.transform.position + new Vector3(-14, 0, 0), Quaternion.identity);
+        }
+        else if (parent.name == "LR(Clone)" || parent.name == "LR")
+        {
+            rand = Random.Range(0, layout.leftCluster.Length);
+            Instantiate(layout.leftCluster[rand], parent.transform.position + new Vector3(14, 0, 0), Quaternion.identity);
+        }
+        else if (parent.name == "RL(Clone)" || parent.name == "RL")
+        {
+            rand = Random.Range(0, layout.rightCluster.Length);
+            Instantiate(layout.rightCluster[rand], parent.transform.position + new Vector3(-14, 0, 0), Quaternion.identity);
+        }
+        else if (parent.name == "R(Clone)" || parent.name == "R")
+        {
+            rand = Random.Range(0, layout.leftCluster.Length);
+            Instantiate(layout.leftCluster[rand], parent.transform.position + new Vector3(14, 0, 0), Quaternion.identity);
+        }
     }
 }

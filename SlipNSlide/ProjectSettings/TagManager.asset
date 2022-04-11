@@ -16,6 +16,8 @@ TagManager:
   - Door
   - Decor
   - EnemySpawn
+  - LastRoom
+  - Cluster
   layers:
   - Default
   - TransparentFX
