@@ -178,7 +178,7 @@ public class enemyScript : MonoBehaviour
         }
     }
 
-    private void FireEnemyBullet(float rightShift, float muzzleDistance, uint damage, float speed, float angle)
+    private void FireEnemyBullet(float rightShift, float muzzleDistance, int damage, float speed, float angle)
     {
         bulletScript bullet = Instantiate(bulletPf, backArm.transform.position + aimVector * (muzzleDistance + .12f) + backArm.transform.right * rightShift, transform.rotation);
         Instantiate(muzzleFlash, backArm.transform.position + aimVector * muzzleDistance + backArm.transform.right * rightShift, transform.rotation);
