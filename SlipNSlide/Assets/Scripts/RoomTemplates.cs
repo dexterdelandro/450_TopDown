@@ -11,6 +11,12 @@ public class RoomTemplates : MonoBehaviour
 
     public GameObject[] LayOuts;
 
+
+    public GameObject[] topCluster;
+    public GameObject[] bottomCluster;
+    public GameObject[] leftCluster;
+    public GameObject[] rightCluster;
+
     public GameObject blocker;
 
     // Start is called before the first frame update
