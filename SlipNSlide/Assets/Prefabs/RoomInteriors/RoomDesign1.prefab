@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9187739530559973776}
   - component: {fileID: 3957442694877096740}
   - component: {fileID: 3146884345035529647}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Interiors_free_48x48_22
   m_TagString: Decor
   m_Icon: {fileID: 0}
