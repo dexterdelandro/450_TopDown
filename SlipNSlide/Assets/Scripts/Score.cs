@@ -12,7 +12,6 @@ public class Score : MonoBehaviour
     public int health;
     public Image healthBar;
 
-    bool end;
 
     Player playerScript;
 
@@ -60,10 +59,9 @@ public class Score : MonoBehaviour
             healthBar.color = Color.red;
         }
 
-        if (playerScript.health <= 0 && !end)
+        if (playerScript.health <= 0 )
         {
             SceneController.controller.EndScene();
-            end = true;
         }
 
         if (SceneManager.GetActiveScene().buildIndex == 2 && GameObject.Find("Canvas"))

@@ -134947,7 +134947,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -134959,9 +134959,10 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Use the mouse to sway the camera to look around\n\nUse the left mouse
-    button to shoot in the direction you're pointing \n\nUse the right mouse button
-    to activate the grappling hook and pull yourself to a wall\n\nSURVIVE AS LONG
-    AS YOU CAN!"
+    button to shoot in the direction you're pointing and use the scroll wheel to
+    cycle between weapons. \n\nUse the right mouse button to activate the grappling
+    hook and while connected to a while, hold space to pull yourself to the wall.\n\nSURVIVE
+    AS LONG AS YOU CAN!"
 --- !u!222 &2096165637
 CanvasRenderer:
   m_ObjectHideFlags: 0
