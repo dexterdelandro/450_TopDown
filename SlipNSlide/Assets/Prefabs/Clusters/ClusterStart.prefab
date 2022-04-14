@@ -119,6 +119,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   spawned: 1
   door: {fileID: 880435013234891936, guid: 808bf921057554d43997bf6258f3c63c, type: 3}
+  prevDoor: {fileID: 0}
   top:
   - {fileID: 343988151238620953, guid: 407e8f752950cd940a59f41a362c5a72, type: 3}
   bottom: []
@@ -183,6 +184,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4924212989821542373, guid: c27fbecd8c032f942a44784a8042a7d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5445718102450939883, guid: c27fbecd8c032f942a44784a8042a7d2, type: 3}
       propertyPath: spawned
       value: 1
@@ -205,6 +210,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1340337421532592300}
     m_Modifications:
+    - target: {fileID: 8282446188733363581, guid: 72c351d9c4dcb0a44aedc95de1e7f118, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8282446188845403072, guid: 72c351d9c4dcb0a44aedc95de1e7f118, type: 3}
       propertyPath: m_RootOrder
       value: 0

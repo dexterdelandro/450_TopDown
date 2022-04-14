@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: spawned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6820155480066519800, guid: ba14430336cc2b94c9a318ae728ac3d1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6820155481121491933, guid: ba14430336cc2b94c9a318ae728ac3d1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -125,6 +129,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5269036667179727105}
     m_Modifications:
+    - target: {fileID: 1105927503504851313, guid: 18c92e797efe8d142af9445a1b190d71, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1177592478294060082, guid: 18c92e797efe8d142af9445a1b190d71, type: 3}
       propertyPath: spawned
       value: 1
@@ -243,6 +251,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7564099134798384914, guid: fa67da33c0a858f4186923512f73cf43, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa67da33c0a858f4186923512f73cf43, type: 3}
 --- !u!4 &8390948988092636412 stripped
@@ -323,6 +335,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 138393104250584604, guid: c11dfb950c427284f80f47d6d14d691e, type: 3}
       propertyPath: m_Tiles.Array.data[24].second.m_TileSpriteIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 138393105270409841, guid: c11dfb950c427284f80f47d6d14d691e, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []

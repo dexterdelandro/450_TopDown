@@ -57,6 +57,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7684111281923417995}
     m_Modifications:
+    - target: {fileID: 1559996668763022759, guid: 176948de9a0ea2045b9cf28b89b45f78, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3686810610268734592, guid: 176948de9a0ea2045b9cf28b89b45f78, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -175,6 +179,10 @@ PrefabInstance:
       propertyPath: spawned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3471063472883121877, guid: ed83621bd80056d42b2271943eddf28a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6383173464472358635, guid: ed83621bd80056d42b2271943eddf28a, type: 3}
       propertyPath: m_Name
       value: TR
@@ -197,6 +205,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7684111281923417995}
     m_Modifications:
+    - target: {fileID: 1105927503504851313, guid: 18c92e797efe8d142af9445a1b190d71, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1177592478294060082, guid: 18c92e797efe8d142af9445a1b190d71, type: 3}
       propertyPath: spawned
       value: 1
@@ -271,6 +283,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7684111281923417995}
     m_Modifications:
+    - target: {fileID: 1559996668763022759, guid: 176948de9a0ea2045b9cf28b89b45f78, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3686810610268734592, guid: 176948de9a0ea2045b9cf28b89b45f78, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -393,6 +409,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BL
       objectReference: {fileID: 0}
+    - target: {fileID: 138393105270409841, guid: c11dfb950c427284f80f47d6d14d691e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c11dfb950c427284f80f47d6d14d691e, type: 3}
 --- !u!4 &7251509233081905895 stripped
@@ -414,6 +434,10 @@ PrefabInstance:
     - target: {fileID: 6644205550825494711, guid: ba14430336cc2b94c9a318ae728ac3d1, type: 3}
       propertyPath: spawned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820155480066519800, guid: ba14430336cc2b94c9a318ae728ac3d1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6820155481121491933, guid: ba14430336cc2b94c9a318ae728ac3d1, type: 3}
       propertyPath: m_RootOrder
