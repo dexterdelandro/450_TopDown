@@ -9,8 +9,8 @@ public class Score : MonoBehaviour
     public uint score;
     Text scoreText;
 
-    uint health;
-    Text healthText;
+    public int health;
+    public Image healthBar;
 
     bool end;
 
@@ -24,8 +24,6 @@ public class Score : MonoBehaviour
         scoreText = GameObject.Find("TextScore").GetComponent<Text>();
 
         health = 100;
-        healthText = GameObject.Find("TextHealth").GetComponent<Text>();
-
         playerScript = GameObject.Find("player").GetComponent<Player>();
 
         //make sure the script isnt destroyed when we go to the end screen
@@ -36,9 +34,31 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = $"Score: {score}";
+        scoreText.text = $"x {score}";
 
-        healthText.text = $"Health: {playerScript.health}";
+        health = playerScript.health;
+        if(health <= 0)
+        {
+            healthBar.gameObject.SetActive(false);
+        }
+        else
+        {
+            healthBar.gameObject.SetActive(true);
+            healthBar.gameObject.transform.localScale = new Vector3(health * 1.0f / 100f * 1.48f, .28267f, 1);
+            healthBar.gameObject.transform.localPosition = new Vector3(-74 * (100 - health) / 100, 0, 0);
+        }
+        if(health > 50)
+        {
+            healthBar.color = Color.green;
+        }
+        else if(health > 25)
+        {
+            healthBar.color = Color.yellow;
+        }
+        else
+        {
+            healthBar.color = Color.red;
+        }
 
         if (playerScript.health <= 0 && !end)
         {

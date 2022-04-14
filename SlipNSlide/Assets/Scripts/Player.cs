@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,9 +28,12 @@ public class Player : MonoBehaviour
     [SerializeField] private float[] fireRate;
     [SerializeField] private float[] reloadSpeed;
     [SerializeField] private GameObject weapon;
-    [SerializeField] private MuzzleFlash muzzleFlash; 
+    [SerializeField] private MuzzleFlash muzzleFlash;
+    [SerializeField] private Sprite[] bigWeaponImages;
+    [SerializeField] private Sprite[] smallWeaponImages;
+    [SerializeField] private Image[] hudWeaponImages;
 
-    public uint health;
+    public int health;
     Score score;
     private float shootTimer = 0;
 
@@ -191,7 +194,7 @@ public class Player : MonoBehaviour
             Reload(currentWeapon);
         }
 
-        if(Input.GetAxis("Mouse ScrollWheel") > 0f)
+        /*if(Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             currentWeapon = (currentWeapon + 1) % 3;
             UpdateAmmoText();
@@ -200,6 +203,31 @@ public class Player : MonoBehaviour
         if(Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             currentWeapon = (currentWeapon + 2) % 3;
+            UpdateAmmoText();
+        }*/
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            currentWeapon = 0;
+            hudWeaponImages[0].sprite = bigWeaponImages[0];
+            hudWeaponImages[1].sprite = smallWeaponImages[1];
+            hudWeaponImages[2].sprite = smallWeaponImages[2];
+            UpdateAmmoText();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            currentWeapon = 1;
+            hudWeaponImages[0].sprite = bigWeaponImages[1];
+            hudWeaponImages[1].sprite = smallWeaponImages[2];
+            hudWeaponImages[2].sprite = smallWeaponImages[0];
+            UpdateAmmoText();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            currentWeapon = 2;
+            hudWeaponImages[0].sprite = bigWeaponImages[2];
+            hudWeaponImages[1].sprite = smallWeaponImages[0];
+            hudWeaponImages[2].sprite = smallWeaponImages[1];
             UpdateAmmoText();
         }
 
@@ -285,6 +313,10 @@ public class Player : MonoBehaviour
         {
             magAmmo[weapon] = magSize[weapon];
             ammo[weapon] -= magSize[weapon];
+            if (weapon == 0)
+            {
+                ammo[weapon] = 1000;
+            }
         }
         else if (ammo[weapon] >= 0)
         {
@@ -296,7 +328,14 @@ public class Player : MonoBehaviour
 
     private void UpdateAmmoText()
     {
-        ammoText.text = magAmmo[currentWeapon] + "/" + ammo[currentWeapon];
+        if(currentWeapon != 0)
+        {
+            ammoText.text = magAmmo[currentWeapon] + "/" + ammo[currentWeapon];
+        }
+        else
+        {
+            ammoText.text = magAmmo[currentWeapon] + "/∞";
+        }
     }
 
     //from Boz0r on unity forum: https://forum.unity.com/threads/whats-the-best-way-to-rotate-a-vector2-in-unity.729605/

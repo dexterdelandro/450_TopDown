@@ -5,7 +5,7 @@ using UnityEngine;
 public class bulletScript : MonoBehaviour
 {
     public float speed;
-    private uint damage;
+    private int damage;
 
 
     private Transform player;
@@ -48,7 +48,7 @@ public class bulletScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void SetDamage(uint d)
+    public void SetDamage(int d)
     {
         damage = d;
     }
