@@ -1925,10 +1925,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Now, press and hold right-click to grapple to wall.furniture
+  m_Text: 'Now, press and hold right-click to grapple to walls/furniture
 
-    If you''re
-    too far away from the object, the grapple hook will retract'
+    If
+    you''re too far away from the object, the grapple hook will retract'
 --- !u!222 &977360819
 CanvasRenderer:
   m_ObjectHideFlags: 0
