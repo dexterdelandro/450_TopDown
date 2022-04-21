@@ -6,9 +6,12 @@ public class Grapple : MonoBehaviour
 {
 	LineRenderer lr;
 
+	public Tutorial tutorial;
+
 	public float grappleDistance;
 	public float grappleSpeed;
 	public float shootSpeed;
+	public float repelSpeed;
 	public DistanceJoint2D joint;
 	[SerializeField] private GameObject hook;
 
@@ -44,6 +47,10 @@ public class Grapple : MonoBehaviour
 			joint.enabled = true;
 			joint.breakForce = float.PositiveInfinity;
 
+			if (!tutorial.completed && tutorial.stepCounter == 1) {
+				tutorial.stepCounter = 2;
+			}
+
 
 			//this is when grapple hook missed
 		} else if (didFire && !wouldHit) {
@@ -53,9 +60,10 @@ public class Grapple : MonoBehaviour
 			StartCoroutine(RetractGrapple());
 		}
 
-		//pulls player to grappled location while they are holding space
-		if (connect && Input.GetKey(KeyCode.Space))
-		{
+		//pulls player to grappled location while they are scrolling up
+		if (connect && Input.GetKey(KeyCode.Space)){
+			if (!tutorial.completed) tutorial.didSpace = true;
+
 			Vector2 grapplePos = Vector2.Lerp(transform.position, targetPos, grappleSpeed * Time.deltaTime);
 			hook.transform.position = targetPos;
 			hook.transform.right = targetPos - (Vector2)transform.position;
@@ -63,9 +71,37 @@ public class Grapple : MonoBehaviour
 			lr.SetPosition(0, transform.position);
 			if (Vector2.Distance(transform.position, targetPos) < 1.0f) //might need to update distance allowed
 			{
-				if(doneRetracting)
-				StartCoroutine(RetractGrapple());
+				if (doneRetracting)
+					StartCoroutine(RetractGrapple());
 				return;
+			}
+		}
+		else if (connect && Input.mouseScrollDelta.y > 0)
+		{
+			if (!tutorial.completed) tutorial.didScrollWheelUp = true;
+
+			Vector2 grapplePos = Vector2.Lerp(transform.position, targetPos, repelSpeed * Time.deltaTime);
+			hook.transform.position = targetPos;
+			hook.transform.right = targetPos - (Vector2)transform.position;
+			transform.position = grapplePos;
+			lr.SetPosition(0, transform.position);
+			if (Vector2.Distance(transform.position, targetPos) < 1.0f) //might need to update distance allowed
+			{
+				if (doneRetracting)
+					StartCoroutine(RetractGrapple());
+				return;
+			}
+		} else if (connect && joint.distance < grappleDistance - 1 && Input.mouseScrollDelta.y < 0) {
+			if (!tutorial.completed) tutorial.didScrollWheelDown = true;
+
+			Vector2 grapplePos = Vector2.Lerp(transform.position, 2 * ((Vector2)transform.position - targetPos), repelSpeed * Time.deltaTime);
+			hook.transform.position = targetPos;
+			hook.transform.right = targetPos - (Vector2)transform.position;
+			transform.position = grapplePos;
+			lr.SetPosition(0, transform.position);
+			if (joint.distance > grappleDistance - 1) //might need to update distance allowed
+			{
+				joint.distance = grappleDistance - 1;
 			}
 		}
 
