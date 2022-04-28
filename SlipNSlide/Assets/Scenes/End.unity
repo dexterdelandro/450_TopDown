@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 230268343}
   - component: {fileID: 230268345}
   m_Layer: 5
-  m_Name: QuitGameButton
+  m_Name: ReturnToHomeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -567,8 +567,8 @@ MonoBehaviour:
   helpPanel: {fileID: 1452474399}
   playButton: {fileID: 750595362}
   helpButton: {fileID: 0}
-  quitGame: {fileID: 230268345}
   closeHelpPanel: {fileID: 2144311302}
+  returnToHome: {fileID: 230268345}
 --- !u!114 &591184908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,7 +687,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit Game :(
+  m_Text: Return to Home
 --- !u!222 &608020259
 CanvasRenderer:
   m_ObjectHideFlags: 0
