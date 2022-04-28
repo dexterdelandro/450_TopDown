@@ -18,7 +18,10 @@ TagManager:
   - EnemySpawn
   - LastRoom
   - Cluster
+  - Medkit
+  - Ammo
   - StartRoom
+  - LastDoor
   layers:
   - Default
   - TransparentFX

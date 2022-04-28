@@ -33,7 +33,7 @@ public class Grapple : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Time.timeScale == 0) return;
+		if (Time.timeScale == 0) return; 
 		if (!didFire && Input.GetMouseButtonDown(1))
 		{
 			DoGrapple();
@@ -123,6 +123,8 @@ public class Grapple : MonoBehaviour
 
 
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, grappleDistance, typeToGrab);
+
+		Debug.Log(hit);
 
 		//means that it hit something
 		if (hit.collider != null)
