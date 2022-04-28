@@ -27,7 +27,7 @@ public class Score : MonoBehaviour
 
         //make sure the script isnt destroyed when we go to the end screen
         // This way the final score will be accesible
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
