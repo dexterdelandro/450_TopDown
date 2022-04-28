@@ -69,6 +69,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0) return;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //screen to world point helps convert the pixel coordinates of the mouse to world coordinates
 

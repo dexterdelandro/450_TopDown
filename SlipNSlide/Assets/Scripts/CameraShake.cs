@@ -36,6 +36,7 @@ public class CameraShake : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0) return;
         camSway = (Input.mousePosition - playerRb.transform.position - new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2, 0)) * swayStrength;
         if (camSway.x > camMax.x)
         {

@@ -80,6 +80,7 @@ public class enemyScript : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0) return;
         switch (currentState)
         {
             //Stand still if not in combat

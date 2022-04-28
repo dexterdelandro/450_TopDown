@@ -33,6 +33,7 @@ public class Grapple : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (Time.timeScale == 0) return;
 		if (!didFire && Input.GetMouseButtonDown(1))
 		{
 			DoGrapple();

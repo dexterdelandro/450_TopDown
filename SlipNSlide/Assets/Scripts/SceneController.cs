@@ -69,7 +69,6 @@ public class SceneController : MonoBehaviour
 
     public void HelpButtonPressed()
     {
-        if(currentSceneIndex == 1) Time.timeScale = 1.0f;   //unpause game
 
         //Check if helppanel is active and flip state
         if (!helpPanel.activeSelf)
@@ -79,6 +78,7 @@ public class SceneController : MonoBehaviour
         else
         {
             helpPanel.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 }
