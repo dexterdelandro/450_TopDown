@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 5778650402139272876}
   m_Layer: 0
   m_Name: RoomDesign6
-  m_TagString: Untagged
+  m_TagString: Decor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 5778650402490650494}
   - component: {fileID: 5778650402490650488}
   - component: {fileID: 5778650402490650495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Interiors_free_48x48_23
   m_TagString: Decor
   m_Icon: {fileID: 0}
@@ -958,9 +958,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -967094061
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -6810997771719145765, guid: 58b8d5bcbc640dc4e84fb1b014ab8932, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
