@@ -1514,13 +1514,9 @@ PrefabInstance:
       propertyPath: spawned
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2838178291164993312, guid: f2b1e313d6f96324580bad11bb1c3377, type: 3}
-      propertyPath: enemy
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2838178291164993312, guid: f2b1e313d6f96324580bad11bb1c3377, type: 3}
-      propertyPath: spawned
-      value: 1
+    - target: {fileID: 5573987272739732326, guid: f2b1e313d6f96324580bad11bb1c3377, type: 3}
+      propertyPath: m_TagString
+      value: StartRoom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2b1e313d6f96324580bad11bb1c3377, type: 3}

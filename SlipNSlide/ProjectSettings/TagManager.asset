@@ -18,6 +18,7 @@ TagManager:
   - EnemySpawn
   - LastRoom
   - Cluster
+  - StartRoom
   layers:
   - Default
   - TransparentFX
