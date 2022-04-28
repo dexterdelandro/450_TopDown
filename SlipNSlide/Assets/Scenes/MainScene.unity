@@ -1514,6 +1514,10 @@ PrefabInstance:
       propertyPath: spawned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5573987272739732326, guid: f2b1e313d6f96324580bad11bb1c3377, type: 3}
+      propertyPath: m_TagString
+      value: StartRoom
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2b1e313d6f96324580bad11bb1c3377, type: 3}
 --- !u!1 &779395674

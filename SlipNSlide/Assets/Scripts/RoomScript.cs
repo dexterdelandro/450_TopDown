@@ -72,6 +72,11 @@ public class RoomScript : MonoBehaviour
 
     void SpawnEnemies()
     {
+        if (parent.tag == "StartRoom")
+        {
+            return;
+        }
+
         for (int i = 0; i < layout.LayOuts[rand].transform.childCount; ++i)
         {
             Transform currentItem = layout.LayOuts[rand].transform.GetChild(i);
