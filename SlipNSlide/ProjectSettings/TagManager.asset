@@ -19,9 +19,10 @@ TagManager:
   - LastRoom
   - Cluster
   - Medkit
-  - Ammo
   - StartRoom
   - LastDoor
+  - AR_Ammo
+  - Shotgun_Ammo
   layers:
   - Default
   - TransparentFX

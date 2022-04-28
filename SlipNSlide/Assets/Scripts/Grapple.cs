@@ -95,10 +95,11 @@ public class Grapple : MonoBehaviour
 		} else if (connect && joint.distance < grappleDistance - 1 && Input.mouseScrollDelta.y < 0) {
 			if (!tutorial.completed) tutorial.didScrollWheelDown = true;
 
-			Vector2 grapplePos = Vector2.Lerp(transform.position, 2 * ((Vector2)transform.position - targetPos), repelSpeed * Time.deltaTime);
-			hook.transform.position = targetPos;
-			hook.transform.right = targetPos - (Vector2)transform.position;
-			transform.position = grapplePos;
+			//Vector2 grapplePos = Vector2.Lerp(transform.position, 2 * ((Vector2)transform.position - targetPos), repelSpeed/2.0f * Time.deltaTime);
+			//hook.transform.position = targetPos;
+			//hook.transform.right = targetPos - (Vector2)transform.position;
+			//transform.position = grapplePos;
+			joint.distance += 1f;
 			lr.SetPosition(0, transform.position);
 			if (joint.distance > grappleDistance - 1) //might need to update distance allowed
 			{

@@ -368,9 +368,14 @@ public class Player : MonoBehaviour
             if (health > 100) health = 100;
             Destroy(collision.gameObject);
         }
-        else if (collision.gameObject.tag == "Ammo") {
-            ammo[1] += 6;
+        else if (collision.gameObject.tag == "AR_Ammo") {
             ammo[2] += 90;
+            Destroy(collision.gameObject);
+            UpdateAmmoText();
+        }
+        else if (collision.gameObject.tag == "Shotgun_Ammo")
+        {
+            ammo[1] += 6;
             Destroy(collision.gameObject);
             UpdateAmmoText();
         }

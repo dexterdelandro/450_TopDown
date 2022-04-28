@@ -15,6 +15,7 @@ public class Tutorial : MonoBehaviour
     public bool didSwing = false;
     private bool swapShotgun = false;
     private bool swapAK = false;
+    public GameObject skipStep;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,12 +27,14 @@ public class Tutorial : MonoBehaviour
     {
         if (completed) return;
 
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.S)) {
             for (int i = 0; i < tutorialSteps.Length; i++) {
                 tutorialSteps[i].SetActive(false);
-            }
-            completed = true;
-        }
+			}
+            skipStep.SetActive(false);
+			completed = true;
+            return;
+		}
 
 		for (int i = 0; i < tutorialSteps.Length; i++)
 		{
@@ -79,6 +82,7 @@ public class Tutorial : MonoBehaviour
             if (swapAK && swapShotgun) {
                 stepCounter = 0;
                 tutorialSteps[3].SetActive(false);
+                skipStep.SetActive(false);
                 completed = true;
             } 
         }
