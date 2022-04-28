@@ -18,6 +18,8 @@ TagManager:
   - EnemySpawn
   - LastRoom
   - Cluster
+  - Medkit
+  - Ammo
   layers:
   - Default
   - TransparentFX
