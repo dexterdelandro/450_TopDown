@@ -14,62 +14,57 @@ public class SceneController : MonoBehaviour
     public GameObject helpPanel;
     public Button playButton;
     public Button helpButton;
-    public Button quitGame;
     public Button closeHelpPanel;
+    public Button returnToHome;
+    public Button endGameButton;
+    private int currentSceneIndex;
 
-    //close window in webgl
-    //taken from https://answers.unity.com/questions/1576906/close-tab-from-webgl-build.html
-    [DllImport("__Internal")]
-    private static extern void closewindow();
-
-
-    private void Awake()
+    public void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log(currentSceneIndex);
+
+        if (currentSceneIndex == 0)
         {
             //Add onclick listeners to buttons 
             playButton.onClick.AddListener(PlayButtonPressed);
             helpButton.onClick.AddListener(HelpButtonPressed);
-            quitGame.onClick.AddListener(Quit);
             closeHelpPanel.onClick.AddListener(HelpButtonPressed);
         }
-        else if (SceneManager.GetActiveScene().buildIndex == 2)
+        else if (currentSceneIndex == 2)
         {
             playButton.onClick.AddListener(PlayButtonPressed);
-            quitGame.onClick.AddListener(Quit);
+            returnToHome.onClick.AddListener(LoadMenu);
         }
+        else
+        {
+            returnToHome.onClick.AddListener(LoadMenu);
+            endGameButton.onClick.AddListener(LoadEnd);
+            closeHelpPanel.onClick.AddListener(HelpButtonPressed);
+        }
+
 
         if (controller != null) GameObject.Destroy(controller);
         else controller = this;
-
-        DontDestroyOnLoad(this);
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
-        closewindow();
     }
 
     public void LoadMenu()
     {
+        GameObject manager = GameObject.Find("Manager");
+        if (manager) GameObject.Destroy(manager);
         SceneManager.LoadScene(0);
-        GameObject.Destroy(GameObject.Find("EventSystem"));
+        
     }
 
     public void LoadEnd()
     {
         SceneManager.LoadScene(2);
-        GameObject.Destroy(GameObject.Find("EventSystem"));
-
     }
 
     //Loads the game scene which should be at buildindex 1 
     public void PlayButtonPressed()
     {
         SceneManager.LoadScene(1);
-        GameObject.Destroy(GameObject.Find("EventSystem"));
-
     }
 
     public void HelpButtonPressed()
@@ -83,12 +78,7 @@ public class SceneController : MonoBehaviour
         else
         {
             helpPanel.SetActive(false);
+            Time.timeScale = 1;
         }
     }
-
-    public void EndScene()
-    {
-        SceneManager.LoadScene(2);
-    }
-
 }
