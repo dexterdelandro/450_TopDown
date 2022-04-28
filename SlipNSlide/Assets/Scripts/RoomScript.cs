@@ -24,6 +24,9 @@ public class RoomScript : MonoBehaviour
     private GameObject myLayout;
     private RoomTemplates layout;
 
+    public GameObject[] ammo;
+    public GameObject medKit;
+
     private bool cleared;
     List<GameObject> spawns = new List<GameObject>();
 
@@ -35,6 +38,7 @@ public class RoomScript : MonoBehaviour
 
         layout = GameObject.FindGameObjectWithTag("Room Template").GetComponent<RoomTemplates>();
         PickLayout();
+        spawnDrops();
     }
 
     // Update is called once per frame
@@ -156,6 +160,15 @@ public class RoomScript : MonoBehaviour
        {
             Destroy(item);
        }
+    }
+
+    void spawnDrops()
+    {
+        if(Random.value > 0.7)
+        {
+            Instantiate(medKit, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+            Instantiate(ammo[Random.Range(0,1)], transform.position + new Vector3(-1, 0, 0), Quaternion.identity);
+        }
     }
 
     void PickLayout()
