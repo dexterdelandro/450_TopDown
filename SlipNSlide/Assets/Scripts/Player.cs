@@ -372,6 +372,7 @@ public class Player : MonoBehaviour
             ammo[1] += 6;
             ammo[2] += 90;
             Destroy(collision.gameObject);
+            UpdateAmmoText();
         }
     }
 
