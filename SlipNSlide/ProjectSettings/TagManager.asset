@@ -19,6 +19,7 @@ TagManager:
   - LastRoom
   - Cluster
   - StartRoom
+  - LastDoor
   layers:
   - Default
   - TransparentFX
