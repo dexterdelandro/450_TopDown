@@ -722,8 +722,9 @@ MonoBehaviour:
   helpPanel: {fileID: 155289560}
   playButton: {fileID: 1452122783}
   helpButton: {fileID: 338166111}
-  quitGame: {fileID: 0}
   closeHelpPanel: {fileID: 1479913296}
+  returnToHome: {fileID: 0}
+  endGameButton: {fileID: 0}
 --- !u!1 &791919180
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,7 +760,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 175}
-  m_SizeDelta: {x: 350, y: 10}
+  m_SizeDelta: {x: 500, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &791919182
 MonoBehaviour:
@@ -878,7 +879,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 210}
-  m_SizeDelta: {x: 400, y: 50}
+  m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &987334382
 MonoBehaviour:
@@ -134316,7 +134317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 165, y: 215}
+  m_AnchoredPosition: {x: 230, y: 215}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1479913296
@@ -134452,7 +134453,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 500}
+  m_SizeDelta: {x: 600, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1848331119
 MonoBehaviour:
@@ -134710,7 +134711,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -40}
-  m_SizeDelta: {x: 350, y: 400}
+  m_SizeDelta: {x: 550, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2096165636
 MonoBehaviour:
@@ -134748,8 +134749,9 @@ MonoBehaviour:
   m_Text: "Use the mouse to sway the camera to look around\n\nUse the left mouse
     button to shoot in the direction you're pointing and use the number keys to switch
     weapons. \n\nUse the right mouse button to activate the grappling hook and while
-    connected to a while, hold space to pull yourself to the wall or the scroll wheel
-    to adjust the length of the hook.\n\nSURVIVE AS LONG AS YOU CAN!"
+    connected to a wall, hold space to pull yourself to the wall or the scroll wheel
+    to adjust the length of the hook.\n\nUse the grappling hook and hold space to
+    pull an enemy towards you\n\nSURVIVE AS LONG AS YOU CAN!"
 --- !u!222 &2096165637
 CanvasRenderer:
   m_ObjectHideFlags: 0

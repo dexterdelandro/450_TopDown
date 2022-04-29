@@ -27,7 +27,7 @@ public class Score : MonoBehaviour
 
         //make sure the script isnt destroyed when we go to the end screen
         // This way the final score will be accesible
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class Score : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 2 && GameObject.Find("Canvas"))
         {
             GameObject.Find("FinalScore").GetComponent<Text>().text = $"Final Score: {score}";
-            Destroy(this);
+            Destroy(this.gameObject);
             return;
         }
 
