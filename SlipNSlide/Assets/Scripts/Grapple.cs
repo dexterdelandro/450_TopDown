@@ -22,6 +22,8 @@ public class Grapple : MonoBehaviour
 	private bool wouldHit = false;
 	private bool doneRetracting = true;
 
+	private Collider2D colliderObj;	//collider of obj being hooked
+
 	private Vector2 targetPos;
 
 	// Start is called before the first frame update
@@ -39,19 +41,36 @@ public class Grapple : MonoBehaviour
 			DoGrapple();
 		}
 
+		//retract grapple if the hooked enemy has been destroyed
+        if (connect && !colliderObj)
+        {
+			if (doneRetracting)
+			{
+				StartCoroutine(RetractGrapple());
+			}
+			return;
+		}
+
 		//This is when grapple hook hit and moving player to grapple location
 		if (connect && Input.GetMouseButton(1))
 		{
+			if (colliderObj && colliderObj.tag == "Enemy")
+            {
+				targetPos = colliderObj.transform.position;
+			}
+
+			hook.transform.position = targetPos;
+			hook.transform.right = targetPos - (Vector2)transform.position;
 			lr.SetPosition(0, transform.position);
 			lr.SetPosition(1, targetPos);
 			joint.connectedAnchor = targetPos;
 			joint.enabled = true;
 			joint.breakForce = float.PositiveInfinity;
 
-			if (!tutorial.completed && tutorial.stepCounter == 1) {
+			if (!tutorial.completed && tutorial.stepCounter == 1)
+			{
 				tutorial.stepCounter = 2;
 			}
-
 
 			//this is when grapple hook missed
 		} else if (didFire && !wouldHit) {
@@ -65,11 +84,19 @@ public class Grapple : MonoBehaviour
 		if (connect && Input.GetKey(KeyCode.Space)){
 			if (!tutorial.completed) tutorial.didSpace = true;
 
-			Vector2 grapplePos = Vector2.Lerp(transform.position, targetPos, grappleSpeed * Time.deltaTime);
-			hook.transform.position = targetPos;
-			hook.transform.right = targetPos - (Vector2)transform.position;
-			transform.position = grapplePos;
-			lr.SetPosition(0, transform.position);
+			if (colliderObj && colliderObj.tag == "Enemy")
+			{
+				Vector2 enemyPos = Vector2.Lerp(colliderObj.transform.position, transform.position, grappleSpeed * Time.deltaTime);
+				colliderObj.transform.position = enemyPos;
+				lr.SetPosition(1, colliderObj.transform.position);
+			}
+			else
+			{
+				Vector2 grapplePos = Vector2.Lerp(transform.position, targetPos, grappleSpeed * Time.deltaTime);
+				transform.position = grapplePos;
+				lr.SetPosition(0, transform.position);
+			}
+
 			if (Vector2.Distance(transform.position, targetPos) < 1.0f) //might need to update distance allowed
 			{
 				if (doneRetracting)
@@ -82,8 +109,6 @@ public class Grapple : MonoBehaviour
 			if (!tutorial.completed) tutorial.didScrollWheelUp = true;
 
 			Vector2 grapplePos = Vector2.Lerp(transform.position, targetPos, repelSpeed * Time.deltaTime);
-			hook.transform.position = targetPos;
-			hook.transform.right = targetPos - (Vector2)transform.position;
 			transform.position = grapplePos;
 			lr.SetPosition(0, transform.position);
 			if (Vector2.Distance(transform.position, targetPos) < 1.0f) //might need to update distance allowed
@@ -92,8 +117,10 @@ public class Grapple : MonoBehaviour
 					StartCoroutine(RetractGrapple());
 				return;
 			}
-		} else if (connect && joint.distance < grappleDistance - 1 && Input.mouseScrollDelta.y < 0) {
+		}
+		else if (connect && joint.distance < grappleDistance - 1 && Input.mouseScrollDelta.y < 0) {
 			if (!tutorial.completed) tutorial.didScrollWheelDown = true;
+
 
 			//Vector2 grapplePos = Vector2.Lerp(transform.position, 2 * ((Vector2)transform.position - targetPos), repelSpeed/2.0f * Time.deltaTime);
 			//hook.transform.position = targetPos;
@@ -132,6 +159,7 @@ public class Grapple : MonoBehaviour
 		{
 			targetPos = hit.point;
 			wouldHit = true;
+			colliderObj = hit.collider;
 		}
 		else
 		{
@@ -139,7 +167,7 @@ public class Grapple : MonoBehaviour
 			wouldHit = false;
 		}
 
-		Debug.Log(wouldHit);
+		//Debug.Log(wouldHit);
 		//targetPos = hit.point;
 
 		lr.enabled = true;
@@ -175,7 +203,10 @@ public class Grapple : MonoBehaviour
 		}
 
 		lr.SetPosition(1, targetPos);
-		if(wouldHit)connect = true;
+		if (wouldHit)
+		{
+			connect = true;
+		}
 		didFire = true;
 	}
 
