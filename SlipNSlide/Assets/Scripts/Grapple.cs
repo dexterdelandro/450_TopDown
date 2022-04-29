@@ -35,7 +35,7 @@ public class Grapple : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Time.timeScale == 0) return;
+		if (Time.timeScale == 0) return; 
 		if (!didFire && Input.GetMouseButtonDown(1))
 		{
 			DoGrapple();
@@ -121,8 +121,12 @@ public class Grapple : MonoBehaviour
 		else if (connect && joint.distance < grappleDistance - 1 && Input.mouseScrollDelta.y < 0) {
 			if (!tutorial.completed) tutorial.didScrollWheelDown = true;
 
-			Vector2 grapplePos = Vector2.Lerp(transform.position, 2 * ((Vector2)transform.position - targetPos), repelSpeed * Time.deltaTime);
-			transform.position = grapplePos;
+
+			//Vector2 grapplePos = Vector2.Lerp(transform.position, 2 * ((Vector2)transform.position - targetPos), repelSpeed/2.0f * Time.deltaTime);
+			//hook.transform.position = targetPos;
+			//hook.transform.right = targetPos - (Vector2)transform.position;
+			//transform.position = grapplePos;
+			joint.distance += 1f;
 			lr.SetPosition(0, transform.position);
 			if (joint.distance > grappleDistance - 1) //might need to update distance allowed
 			{
@@ -147,6 +151,8 @@ public class Grapple : MonoBehaviour
 
 
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, grappleDistance, typeToGrab);
+
+		Debug.Log(hit);
 
 		//means that it hit something
 		if (hit.collider != null)

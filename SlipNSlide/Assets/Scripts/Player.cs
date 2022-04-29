@@ -237,6 +237,7 @@ public class Player : MonoBehaviour
             sceneController.HelpButtonPressed();    //pulls up pausemenu
 
         }
+
     }
 
     //private void ResumeGame()
@@ -344,19 +345,40 @@ public class Player : MonoBehaviour
         );
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    //Collide with player bullets
+	//private void OnTriggerEnter2D(Collider2D collision)
+	//{
+	//    //Collide with player bullets
 
-    //    //if (collision.gameObject.tag == "enemyBullet")
-    //    //{
-    //    //    Physics2D.IgnoreCollision(gameObject.GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
-    //    //}
+	//    //if (collision.gameObject.tag == "enemyBullet")
+	//    //{
+	//    //    Physics2D.IgnoreCollision(gameObject.GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
+	//    //}
 
-    //    if (collision.gameObject.tag == "enemyBullet")
-    //    {
-    //        health -= 10;
-    //    }
-    //}
+	//    if (collision.gameObject.tag == "enemyBullet")
+	//    {
+	//        health -= 10;
+	//    }
+	//}22
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+        if (collision.gameObject.tag == "Medkit")
+        {
+            health += 35;
+            if (health > 100) health = 100;
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "AR_Ammo") {
+            ammo[2] += 90;
+            Destroy(collision.gameObject);
+            UpdateAmmoText();
+        }
+        else if (collision.gameObject.tag == "Shotgun_Ammo")
+        {
+            ammo[1] += 6;
+            Destroy(collision.gameObject);
+            UpdateAmmoText();
+        }
+    }
 
 }

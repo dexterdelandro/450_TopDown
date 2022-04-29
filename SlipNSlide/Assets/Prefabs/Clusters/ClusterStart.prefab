@@ -125,6 +125,10 @@ MonoBehaviour:
   bottom: []
   left: []
   right: []
+  ammo:
+  - {fileID: 6510524276017445972, guid: 1e67f9019f881ad49bb67f1aad1392c6, type: 3}
+  - {fileID: 8423311128334540776, guid: 00223751efa2a2f4e9be047e67ab8f47, type: 3}
+  medKit: {fileID: 1080710586612915907, guid: 7dd45822bbc13b7499d2c8fdeef05100, type: 3}
 --- !u!1001 &1340337422959697072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,6 +136,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1340337421532592300}
     m_Modifications:
+    - target: {fileID: 72640526964489716, guid: c27fbecd8c032f942a44784a8042a7d2, type: 3}
+      propertyPath: medKit
+      value: 
+      objectReference: {fileID: 1080710586612915907, guid: 7dd45822bbc13b7499d2c8fdeef05100, type: 3}
+    - target: {fileID: 72640526964489716, guid: c27fbecd8c032f942a44784a8042a7d2, type: 3}
+      propertyPath: ammo.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 72640526964489716, guid: c27fbecd8c032f942a44784a8042a7d2, type: 3}
+      propertyPath: ammo.Array.data[0]
+      value: 
+      objectReference: {fileID: 6510524276017445972, guid: 1e67f9019f881ad49bb67f1aad1392c6, type: 3}
+    - target: {fileID: 72640526964489716, guid: c27fbecd8c032f942a44784a8042a7d2, type: 3}
+      propertyPath: ammo.Array.data[1]
+      value: 
+      objectReference: {fileID: 8423311128334540776, guid: 00223751efa2a2f4e9be047e67ab8f47, type: 3}
     - target: {fileID: 4924212988598730703, guid: c27fbecd8c032f942a44784a8042a7d2, type: 3}
       propertyPath: m_Name
       value: TB

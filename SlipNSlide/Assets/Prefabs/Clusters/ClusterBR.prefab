@@ -121,6 +121,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: LastRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 9163323594101148344, guid: 176948de9a0ea2045b9cf28b89b45f78, type: 3}
+      propertyPath: medKit
+      value: 
+      objectReference: {fileID: 1080710586612915907, guid: 7dd45822bbc13b7499d2c8fdeef05100, type: 3}
+    - target: {fileID: 9163323594101148344, guid: 176948de9a0ea2045b9cf28b89b45f78, type: 3}
+      propertyPath: ammo.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163323594101148344, guid: 176948de9a0ea2045b9cf28b89b45f78, type: 3}
+      propertyPath: ammo.Array.data[0]
+      value: 
+      objectReference: {fileID: 6510524276017445972, guid: 1e67f9019f881ad49bb67f1aad1392c6, type: 3}
+    - target: {fileID: 9163323594101148344, guid: 176948de9a0ea2045b9cf28b89b45f78, type: 3}
+      propertyPath: ammo.Array.data[1]
+      value: 
+      objectReference: {fileID: 8423311128334540776, guid: 00223751efa2a2f4e9be047e67ab8f47, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 176948de9a0ea2045b9cf28b89b45f78, type: 3}
 --- !u!4 &219315906632579063 stripped
@@ -135,6 +151,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4670910946073098502}
     m_Modifications:
+    - target: {fileID: 6246177378344831528, guid: ba14430336cc2b94c9a318ae728ac3d1, type: 3}
+      propertyPath: medKit
+      value: 
+      objectReference: {fileID: 1080710586612915907, guid: 7dd45822bbc13b7499d2c8fdeef05100, type: 3}
+    - target: {fileID: 6246177378344831528, guid: ba14430336cc2b94c9a318ae728ac3d1, type: 3}
+      propertyPath: ammo.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246177378344831528, guid: ba14430336cc2b94c9a318ae728ac3d1, type: 3}
+      propertyPath: ammo.Array.data[0]
+      value: 
+      objectReference: {fileID: 6510524276017445972, guid: 1e67f9019f881ad49bb67f1aad1392c6, type: 3}
+    - target: {fileID: 6246177378344831528, guid: ba14430336cc2b94c9a318ae728ac3d1, type: 3}
+      propertyPath: ammo.Array.data[1]
+      value: 
+      objectReference: {fileID: 8423311128334540776, guid: 00223751efa2a2f4e9be047e67ab8f47, type: 3}
     - target: {fileID: 6276091747482005438, guid: ba14430336cc2b94c9a318ae728ac3d1, type: 3}
       propertyPath: spawned
       value: 1
@@ -265,6 +297,22 @@ PrefabInstance:
       propertyPath: spawned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7337940228143754862, guid: 18c92e797efe8d142af9445a1b190d71, type: 3}
+      propertyPath: medKit
+      value: 
+      objectReference: {fileID: 1080710586612915907, guid: 7dd45822bbc13b7499d2c8fdeef05100, type: 3}
+    - target: {fileID: 7337940228143754862, guid: 18c92e797efe8d142af9445a1b190d71, type: 3}
+      propertyPath: ammo.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337940228143754862, guid: 18c92e797efe8d142af9445a1b190d71, type: 3}
+      propertyPath: ammo.Array.data[0]
+      value: 
+      objectReference: {fileID: 6510524276017445972, guid: 1e67f9019f881ad49bb67f1aad1392c6, type: 3}
+    - target: {fileID: 7337940228143754862, guid: 18c92e797efe8d142af9445a1b190d71, type: 3}
+      propertyPath: ammo.Array.data[1]
+      value: 
+      objectReference: {fileID: 8423311128334540776, guid: 00223751efa2a2f4e9be047e67ab8f47, type: 3}
     - target: {fileID: 7487001905703874895, guid: 18c92e797efe8d142af9445a1b190d71, type: 3}
       propertyPath: m_Name
       value: TL
@@ -283,6 +331,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4670910946073098502}
     m_Modifications:
+    - target: {fileID: 72640526964489716, guid: c27fbecd8c032f942a44784a8042a7d2, type: 3}
+      propertyPath: medKit
+      value: 
+      objectReference: {fileID: 1080710586612915907, guid: 7dd45822bbc13b7499d2c8fdeef05100, type: 3}
+    - target: {fileID: 72640526964489716, guid: c27fbecd8c032f942a44784a8042a7d2, type: 3}
+      propertyPath: ammo.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 72640526964489716, guid: c27fbecd8c032f942a44784a8042a7d2, type: 3}
+      propertyPath: ammo.Array.data[0]
+      value: 
+      objectReference: {fileID: 6510524276017445972, guid: 1e67f9019f881ad49bb67f1aad1392c6, type: 3}
+    - target: {fileID: 72640526964489716, guid: c27fbecd8c032f942a44784a8042a7d2, type: 3}
+      propertyPath: ammo.Array.data[1]
+      value: 
+      objectReference: {fileID: 8423311128334540776, guid: 00223751efa2a2f4e9be047e67ab8f47, type: 3}
     - target: {fileID: 4924212988598730703, guid: c27fbecd8c032f942a44784a8042a7d2, type: 3}
       propertyPath: m_Name
       value: TB
@@ -357,6 +421,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4670910946073098502}
     m_Modifications:
+    - target: {fileID: 6246177378344831528, guid: ba14430336cc2b94c9a318ae728ac3d1, type: 3}
+      propertyPath: medKit
+      value: 
+      objectReference: {fileID: 1080710586612915907, guid: 7dd45822bbc13b7499d2c8fdeef05100, type: 3}
+    - target: {fileID: 6246177378344831528, guid: ba14430336cc2b94c9a318ae728ac3d1, type: 3}
+      propertyPath: ammo.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246177378344831528, guid: ba14430336cc2b94c9a318ae728ac3d1, type: 3}
+      propertyPath: ammo.Array.data[0]
+      value: 
+      objectReference: {fileID: 6510524276017445972, guid: 1e67f9019f881ad49bb67f1aad1392c6, type: 3}
+    - target: {fileID: 6246177378344831528, guid: ba14430336cc2b94c9a318ae728ac3d1, type: 3}
+      propertyPath: ammo.Array.data[1]
+      value: 
+      objectReference: {fileID: 8423311128334540776, guid: 00223751efa2a2f4e9be047e67ab8f47, type: 3}
     - target: {fileID: 6276091747482005438, guid: ba14430336cc2b94c9a318ae728ac3d1, type: 3}
       propertyPath: spawned
       value: 1
@@ -495,6 +575,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: LR
       objectReference: {fileID: 0}
+    - target: {fileID: 9163323594101148344, guid: 176948de9a0ea2045b9cf28b89b45f78, type: 3}
+      propertyPath: medKit
+      value: 
+      objectReference: {fileID: 1080710586612915907, guid: 7dd45822bbc13b7499d2c8fdeef05100, type: 3}
+    - target: {fileID: 9163323594101148344, guid: 176948de9a0ea2045b9cf28b89b45f78, type: 3}
+      propertyPath: ammo.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163323594101148344, guid: 176948de9a0ea2045b9cf28b89b45f78, type: 3}
+      propertyPath: ammo.Array.data[0]
+      value: 
+      objectReference: {fileID: 6510524276017445972, guid: 1e67f9019f881ad49bb67f1aad1392c6, type: 3}
+    - target: {fileID: 9163323594101148344, guid: 176948de9a0ea2045b9cf28b89b45f78, type: 3}
+      propertyPath: ammo.Array.data[1]
+      value: 
+      objectReference: {fileID: 8423311128334540776, guid: 00223751efa2a2f4e9be047e67ab8f47, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 176948de9a0ea2045b9cf28b89b45f78, type: 3}
 --- !u!4 &5116250853687383096 stripped

@@ -18,7 +18,11 @@ TagManager:
   - EnemySpawn
   - LastRoom
   - Cluster
+  - Medkit
   - StartRoom
+  - LastDoor
+  - AR_Ammo
+  - Shotgun_Ammo
   layers:
   - Default
   - TransparentFX
@@ -27,8 +31,8 @@ TagManager:
   - Water
   - UI
   - Wall
-  - TableTop
-  - 
+  - Bullet
+  - Drops
   - 
   - 
   - 
