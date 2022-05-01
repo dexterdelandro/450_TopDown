@@ -24,9 +24,9 @@ public class ClusterManager : MonoBehaviour
                 {
                     foreach (Transform child in cluster.transform)
                     {
-                        Destroy(child);
+                        Destroy(child.gameObject);
                     }
-                    Destroy(cluster);
+                    Destroy(cluster.gameObject);
                 }
             }
         }
