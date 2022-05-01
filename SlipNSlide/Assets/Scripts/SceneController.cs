@@ -64,6 +64,7 @@ public class SceneController : MonoBehaviour
     //Loads the game scene which should be at buildindex 1 
     public void PlayButtonPressed()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
 
